@@ -1,0 +1,10 @@
+regime,type,requested_start,requested_end,observed_start,observed_end,months,coverage
+Bull I,Bull,2003-01,2007-06,2003-02,2007-06,53,Partial
+Crisis I,Crisis,2007-07,2009-03,2007-07,2009-03,21,Full
+Recovery I,Recovery,2009-04,2012-06,2009-04,2012-06,39,Full
+Bull II,Bull,2012-07,2015-06,2012-07,2015-06,36,Full
+Shock I,Shock,2015-07,2016-03,2015-07,2016-03,9,Full
+Bull III,Bull,2016-04,2018-12,2016-04,2018-12,33,Full
+Pre-Crisis,Bull,2019-01,2020-01,2019-01,2020-01,13,Full
+Crisis II,Crisis,2020-02,2020-06,2020-02,2020-06,5,Full
+Recovery II,Recovery,2020-07,2021-12,2020-07,2020-12,6,Partial

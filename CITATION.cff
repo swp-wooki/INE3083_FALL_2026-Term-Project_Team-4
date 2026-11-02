@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying course research report when using this reproduction package."
+title: "Low-Risk and Coskewness-Based Stock Selection: The Incremental Value of Portfolio Optimization"
+authors:
+  - name: "Team 4, Introduction to Financial Engineering, Hanyang University"
+year: 2026
+type: software
+version: 1.0.0
+repository-code: "https://github.com/swp-wooki/-INE3083_FALL_2026-Term-Project_Team-4"

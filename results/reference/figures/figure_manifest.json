@@ -1,0 +1,127 @@
+{
+  "scenario": "total_observed_drift10",
+  "input_sha256": {
+    "monthly_returns.csv": "1f90bf6f9c34c0b73ceb5f38e581c4663f7ec46e495dec30c1988b4a2ec0baa0",
+    "benchmark_returns.csv": "b17d2e9ebea92f03be1ca5dcf22d79a2c4a24e55ab4a9d6d5dd4db89abe2d27a",
+    "regime_coverage.csv": "f9168a814f78a449086c702ae7a0028bdf51ed5f06fd35b63a06c2a63cdaa3e0",
+    "regime_metrics.csv": "10eef2dd94f67184e1c37686c344ae089c3338991ff79c8654606735972b8a38"
+  },
+  "observed_start": "2003-02",
+  "observed_end": "2020-12",
+  "months": 215,
+  "regimes": [
+    {
+      "name": "Bull I",
+      "type": "Bull",
+      "start": "2003-02",
+      "end": "2007-06",
+      "n": 53
+    },
+    {
+      "name": "Crisis I",
+      "type": "Crisis",
+      "start": "2007-07",
+      "end": "2009-03",
+      "n": 21
+    },
+    {
+      "name": "Recovery I",
+      "type": "Recovery",
+      "start": "2009-04",
+      "end": "2012-06",
+      "n": 39
+    },
+    {
+      "name": "Bull II",
+      "type": "Bull",
+      "start": "2012-07",
+      "end": "2015-06",
+      "n": 36
+    },
+    {
+      "name": "Shock I",
+      "type": "Shock",
+      "start": "2015-07",
+      "end": "2016-03",
+      "n": 9
+    },
+    {
+      "name": "Bull III",
+      "type": "Bull",
+      "start": "2016-04",
+      "end": "2018-12",
+      "n": 33
+    },
+    {
+      "name": "Pre-Crisis",
+      "type": "Bull",
+      "start": "2019-01",
+      "end": "2020-01",
+      "n": 13
+    },
+    {
+      "name": "Crisis II",
+      "type": "Crisis",
+      "start": "2020-02",
+      "end": "2020-06",
+      "n": 5
+    },
+    {
+      "name": "Recovery II",
+      "type": "Recovery",
+      "start": "2020-07",
+      "end": "2020-12",
+      "n": 6
+    }
+  ],
+  "saved_regime_cumulative_return_max_abs_error": 6.217248937900877e-15,
+  "figure_series": [
+    "source_weight",
+    "equal_weight",
+    "gmvp_constant_corr",
+    "SP500",
+    "CRSP_market",
+    "FF_market"
+  ],
+  "heatmap_row_order": [
+    "equal_weight",
+    "gmvp_sample",
+    "gmvp_constant_corr",
+    "gmvp_lw_constant_corr",
+    "gmvp_lw_identity",
+    "gmvp_rmt_clipping",
+    "gmvp_qis",
+    "gmvp_ridge",
+    "gmvp_factor",
+    "inverse_vol",
+    "vol_timing",
+    "erc",
+    "mdp",
+    "max_sharpe_bs",
+    "min_cvar",
+    "mix_1n",
+    "norm_gmvp",
+    "tc_gmvp",
+    "SP500",
+    "CRSP_market",
+    "FF_market"
+  ],
+  "heatmap_color_limits_pp": [
+    -70.0,
+    70.0
+  ],
+  "heatmap_value_min_pp": -65.47024067455601,
+  "heatmap_value_max_pp": 23.04294975204956,
+  "initial_wealth": 1,
+  "regime_wealth_y_limits": [
+    0.4,
+    2.5
+  ],
+  "source_returns_changed": false,
+  "required_pgfplots_library": "groupplots",
+  "outputs": {
+    "fig:wealth": "wealth_drawdown",
+    "fig:regime_paths": "regime_paths",
+    "fig:regime_heatmap": "regime_heatmap"
+  }
+}

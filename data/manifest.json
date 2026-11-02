@@ -1,0 +1,61 @@
+{
+  "files": [
+    {
+      "path": "data/processed/security_monthly_clean.csv.gz",
+      "bytes": 60607468,
+      "sha256": "9c9576b04d7a6caf383926ed37771a9ff3737c44619186f3a752885edfb7be78",
+      "required_for_report": true
+    },
+    {
+      "path": "data/raw/factor_returns_monthly.csv",
+      "bytes": 51247,
+      "sha256": "ca5b6baf0ff5607b5c17e74ba96c1ff832fbb0e9f9044f60816bcdf69b36ff39",
+      "required_for_report": true
+    },
+    {
+      "path": "data/raw/market_benchmarks.csv",
+      "bytes": 16578,
+      "sha256": "a6a41b24da65796621ef9c672244c442d55d658dd300560c15695af049b758fc",
+      "required_for_report": true
+    },
+    {
+      "path": "data/raw/security_monthly.csv.gz",
+      "bytes": 145452327,
+      "sha256": "e535f6ae87921e00a7a13bf075edb51104fbe0e3bfe9c617fca9d9f3c5ba1486",
+      "required_for_report": true,
+      "original_bytes": 990577372,
+      "original_sha256": "142d29f47a3d3c5f0f87c3bbc9b1be8b1274cb8d5843a59c34d0bc061267c850",
+      "compression": "gzip"
+    },
+    {
+      "path": "data/raw/security_prices.csv.gz",
+      "bytes": 13690931,
+      "sha256": "1667129db1e78b3ad2a8ed8345b92078bad97f4522d6aebef17b5ecc025f2951",
+      "required_for_report": true,
+      "original_bytes": 74823930,
+      "original_sha256": "09662a694a6966f893ccd21d645bf6e1dbdf4ad7d2755d442cfbdacf9bbc5cf8",
+      "compression": "gzip"
+    },
+    {
+      "path": "data/selections/defensive_selection.csv",
+      "bytes": 477635,
+      "sha256": "ca40a1003d37589a9ef37ee0612428dce92b6bdfb320e5213a473c92392bc009",
+      "required_for_report": true
+    },
+    {
+      "path": "data/selections/return_oriented_selection.csv",
+      "bytes": 790256,
+      "sha256": "93866635866fafbebfa19f14612ad1ee3419b84067b28beb7848e48740865729",
+      "required_for_report": true
+    },
+    {
+      "path": "data/supplementary/company_fundamentals.csv.gz",
+      "bytes": 148539028,
+      "sha256": "ce087f30f025e64b495ba310601f0c535ee5aff5f1c6f7ca8da2b5025eb74ad2",
+      "required_for_report": false,
+      "original_bytes": 834118317,
+      "original_sha256": "eb8349085c86039521d769cb1e4a0bf5beb48238ea26025629b7514e32fb905a",
+      "compression": "gzip"
+    }
+  ]
+}

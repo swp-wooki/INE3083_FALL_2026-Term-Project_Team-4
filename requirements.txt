@@ -1,0 +1,11 @@
+# Direct dependency versions used to validate this reproduction package.
+-e .[notebooks,verification]
+numpy==2.2.4
+pandas==2.2.3
+scipy==1.15.2
+matplotlib==3.10.1
+scikit-learn==1.6.1
+jupyterlab==4.4.0
+nbformat==5.10.4
+nbclient==0.10.2
+ipykernel==6.29.5

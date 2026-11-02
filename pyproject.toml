@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=78", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lowrisk-portfolio"
+version = "1.0.0"
+description = "Reproducible allocation experiments for low-risk and coskewness-based stock selection"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["numpy>=2.2,<3", "pandas>=2.2,<3", "scipy>=1.15,<2", "matplotlib>=3.10,<4"]
+
+[project.optional-dependencies]
+notebooks = ["jupyterlab>=4.4,<5", "nbformat>=5.10,<6", "nbclient>=0.10,<1", "ipykernel>=6.29,<7"]
+verification = ["scikit-learn>=1.6,<2"]
+
+[project.scripts]
+lowrisk-reproduce = "lowrisk_portfolio.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

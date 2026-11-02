@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "absolute_tolerance": 1e-08,
+  "relative_tolerance": 1e-07,
+  "tables": [
+    {
+      "table": "data_audit.csv",
+      "rows": 6450,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "monthly_returns.csv",
+      "rows": 24510,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "holdings.csv.gz",
+      "rows": 122550,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "model_metrics.csv",
+      "rows": 570,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "paired_comparisons.csv",
+      "rows": 1080,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "benchmark_returns.csv",
+      "rows": 215,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "benchmark_metrics.csv",
+      "rows": 15,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "regime_metrics.csv",
+      "rows": 1053,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "sharpe_bootstrap.csv",
+      "rows": 36,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "mechanism_summary.csv",
+      "rows": 19,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "selection_comparison/metrics.csv",
+      "rows": 12,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "selection_comparison/paired_inference.csv",
+      "rows": 2,
+      "maximum_absolute_difference": 0.0
+    }
+  ]
+}

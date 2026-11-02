@@ -1,0 +1,37 @@
+{
+  "status": "complete",
+  "mode": "full",
+  "stages": [
+    {
+      "name": "experiment",
+      "seconds": 47.717,
+      "source_sha256": "e96a8f512cd8409edf0447a8e56656210dad276fe023d034dc61f71a6634e7f9"
+    },
+    {
+      "name": "mechanisms",
+      "seconds": 17.656,
+      "source_sha256": "fb2c3920d731e09c273b1aab828b82ae30c97fa01c7406e60023709f53c90102"
+    },
+    {
+      "name": "selection_comparison",
+      "seconds": 5.414,
+      "source_sha256": "cc0087786985da3141cdf5210e0b32aada96b7ebfd7459e47d4b123065759e93"
+    },
+    {
+      "name": "report",
+      "seconds": 2.45,
+      "source_sha256": "ca9dc2e755c0205d7055872e2c11eb9af71813409488f65d8a712b60b179c5e3"
+    },
+    {
+      "name": "market_inference",
+      "seconds": 0.933,
+      "source_sha256": "29b59f01fc3d9fb129e1c345cb01b9bea9b9e452144b610b0406148ef4772864"
+    },
+    {
+      "name": "verify_benchmarks",
+      "seconds": 0.251,
+      "source_sha256": "51a18a0e1977dbfb28acb350cba1bb2b1c773ee853acc47e9168e6537618f8a9"
+    }
+  ],
+  "seconds": 74.424
+}

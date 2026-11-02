@@ -1,0 +1,129 @@
+{
+  "description": "Supplied final-report numerical outputs, retained independently of reproduction runs.",
+  "files": [
+    {
+      "path": "annual_returns.csv",
+      "sha256": "6069a9cb2399e3a5224687fed445061605c7e526e0d7e730896b24613aef19e9"
+    },
+    {
+      "path": "benchmark_metrics.csv",
+      "sha256": "84fc0eaa790847ccf7b06017df956efe017fcd395f92664bce38f0345741fc69"
+    },
+    {
+      "path": "benchmark_returns.csv",
+      "sha256": "b17d2e9ebea92f03be1ca5dcf22d79a2c4a24e55ab4a9d6d5dd4db89abe2d27a"
+    },
+    {
+      "path": "data_audit.csv",
+      "sha256": "d6727bd95fc54fea64645702670add59a0ca8e20b05389f9b8c50e471a604b4b"
+    },
+    {
+      "path": "figures/figure_manifest.json",
+      "sha256": "60fd8ecd1538a4a615224a962c6053b408fc19c4b782bf139d5104ad5d96b6b4"
+    },
+    {
+      "path": "figures/regime_heatmap.png",
+      "sha256": "8fec8a59029221d27c655dda6fdbfbf13b231a47741f80e758f0744715ead246"
+    },
+    {
+      "path": "figures/regime_heatmap.tex",
+      "sha256": "5793f4650571bc390ab799f5cd3ba091dc0105c42fe9f3b728983f9a9f254138"
+    },
+    {
+      "path": "figures/regime_paths.png",
+      "sha256": "acb77ec63b3a1bea683d42c44f9d72b97714dc8c576299919c1485861a13bdda"
+    },
+    {
+      "path": "figures/regime_paths.tex",
+      "sha256": "3788222787ca86457317a853ae059f395e85235af025e89275e14e86329bd388"
+    },
+    {
+      "path": "figures/regime_return_differences_pp.csv",
+      "sha256": "2e4a3e89341ef466d23069fbe6e9ebe82fdf88066cdf62981715f85d1b6d3c61"
+    },
+    {
+      "path": "figures/wealth_drawdown.png",
+      "sha256": "18f8e2a322addc231297b6a743fb5ad5d717071b24c47da4ab43262bfb785aa3"
+    },
+    {
+      "path": "figures/wealth_drawdown.tex",
+      "sha256": "6836ac43be61dc7894542b0f327d2576fd34b4cacd4859db57c3d7d80c03b8c3"
+    },
+    {
+      "path": "frozen_selection.csv",
+      "sha256": "f7adc809c487bbbaab58070b7c9248de1ed3f127f8aaa332f8138f9f5297cac8"
+    },
+    {
+      "path": "holdings.csv.gz",
+      "sha256": "f20928735a8251d3931da76cb3aebdb8df4ddd330dcc8c38a8aa9dde7fd5879b"
+    },
+    {
+      "path": "market_inference.csv",
+      "sha256": "6eb3d836c63943ab00b0647374d0ae0e9b70c2cb67c46e82157e20481ebb9c70"
+    },
+    {
+      "path": "mechanism_monthly.csv",
+      "sha256": "f8b041f684f380f094aa82df47a1eb822572557ace8cce2d997b3c2f5da152af"
+    },
+    {
+      "path": "mechanism_summary.csv",
+      "sha256": "3a4c0d8340341842a756df39cbc60ff2598404e8194c39d64c525a144649bced"
+    },
+    {
+      "path": "model_metrics.csv",
+      "sha256": "073e40e825e1f431c5bd6f834a3aa10ddd91fe9c436e4b97b74dcb2909f311b3"
+    },
+    {
+      "path": "monthly_returns.csv",
+      "sha256": "1f90bf6f9c34c0b73ceb5f38e581c4663f7ec46e495dec30c1988b4a2ec0baa0"
+    },
+    {
+      "path": "paired_comparisons.csv",
+      "sha256": "dad4efd771d99c971bb04abcb870766306abcf17f02cf2747074e46858c8472a"
+    },
+    {
+      "path": "regime_coverage.csv",
+      "sha256": "f9168a814f78a449086c702ae7a0028bdf51ed5f06fd35b63a06c2a63cdaa3e0"
+    },
+    {
+      "path": "regime_metrics.csv",
+      "sha256": "10eef2dd94f67184e1c37686c344ae089c3338991ff79c8654606735972b8a38"
+    },
+    {
+      "path": "selected_covariance_structure.csv",
+      "sha256": "db3b86322bc3c38583f5d89652e76be28983edf493065044adf875e065e1ee60"
+    },
+    {
+      "path": "selection_comparison/article_section.tex",
+      "sha256": "fe34b3773c7b00d2178a2f6433728f5a06a91fdcd5672c2b0424071e80cf94be"
+    },
+    {
+      "path": "selection_comparison/metrics.csv",
+      "sha256": "11e80fb3c6013a5f0b6d5df6c1c3fe12b8a621db880cc55691ea7b819b70cf46"
+    },
+    {
+      "path": "selection_comparison/monthly_returns.csv",
+      "sha256": "0cd474d738b1aa1521a12c8bc30c61271410858574b470e4e3b72e7ce7883ad5"
+    },
+    {
+      "path": "selection_comparison/paired_inference.csv",
+      "sha256": "b21bc4ff44264b57cf763dbb9b0b75e0f5f6e7d30c3976ac65dabf9010ae59d8"
+    },
+    {
+      "path": "selection_comparison/selection_risk_comparison.png",
+      "sha256": "336930067c0eec365634b1ce83877722842ac107116638168515f9f660a3a2c8"
+    },
+    {
+      "path": "sharpe_bootstrap.csv",
+      "sha256": "0f12949c5c5f4903755518c315d4f9a947873f0ff7de50717db335de35cf7cd2"
+    },
+    {
+      "path": "sp500_price_metrics.csv",
+      "sha256": "9982d9d017813f3c50b367a74019b341c118aa64c4e5bc8652eb6c9f8501c3b3"
+    },
+    {
+      "path": "terminal_events.csv",
+      "sha256": "a08737abc378f19c4ae19fda4f49e6c44077e4d18ff508df4f219d8bf6e3fb16"
+    }
+  ]
+}
