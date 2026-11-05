@@ -1,0 +1,49 @@
+{
+  "experiment": "extE_factor_cov",
+  "title": "팩터 모형 공분산 (FF5, FF5+BAB)",
+  "run_at": "2026-11-03T01:53:24",
+  "command": "python.exe extensions\\extE_factor_cov.py",
+  "git_commit": "b8c5289afca8f877fc60b8b176d8353638c187ac",
+  "original_files_modified": false,
+  "python": "3.11.1",
+  "numpy": "2.2.4",
+  "pandas": "2.2.3",
+  "primary_one_way_cost_bps": 10,
+  "selection_sha256": "ca40a1003d37589a9ef37ee0612428dce92b6bdfb320e5213a473c92392bc009",
+  "code_sha256": {
+    "check_EA_conditions.py": "747fa7618d8f21b589206a43420bfd97fb21fcb80b30742f80688475a7f4176c",
+    "common.py": "5b7a0b9c4d888cecc0078b291bd0bdec738555afb6b4d677d9263999341316c2",
+    "ext01_window_cap.py": "1c71df66aea557df946a4cd9c69633c9291259f9a485080aeb0e5d3df8e60eb2",
+    "ext04_exposure_neutral.py": "3a4fdf501815ef6f82660f93eb4eb93b1212964532b8733c634c624e917854eb",
+    "ext06_sector_concentration.py": "7c894760d65c21be6f04ece734dc8dc314a6a978ade34fddbdb325d0fae0935a",
+    "ext10_short_cov_monthly_proxy.py": "9c6e3dfbe581e3a6ccabf5091f4211af9dedd20d7768a31019e745817df59dd2",
+    "extB_tracking_error.py": "826301d0c9a33bb5335b0530ee5173cf78e7e4c42e0b45c1a42301b6c69bd01e",
+    "extC_erc.py": "472461b5097a532d9ca6febeb72000772c3d93f26e041d6d05f640fe76dc48ea",
+    "extD_diversification.py": "d5ba43a1add103371660cbdbbe17a7b0ca2b2e3d6a34f24d60d020720baa7a0d",
+    "extE_factor_cov.py": "0cae2ad11b7e187b5faff5fa68dafd0763a16543644b9cb47679d729d685fe3d",
+    "sector.py": "fd7ee433d65e984a717cd165a38a4593293c24b541803d713d7191aa49225e25",
+    "solvers.py": "5117b566d98b3713ff22b32193e5313c557522f44087c5a522b08d7e0792ad1d"
+  },
+  "checks": {
+    "max_relative_gap": 2.196359914327678e-08,
+    "bab_source": "AQR public series; see extensions/external_data",
+    "reference_reproduction": {
+      "source_weight": {
+        "reference_model": "source_weight",
+        "max_abs_monthly_difference": 2.706168622523819e-16
+      },
+      "sample_T36_cap2K": {
+        "reference_model": "gmvp_sample",
+        "max_abs_monthly_difference": 2.498001805406602e-16
+      },
+      "lw_T36_cap2K": {
+        "reference_model": "gmvp_lw_identity",
+        "max_abs_monthly_difference": 2.42861286636753e-16
+      },
+      "ff5_T36_cap2K": {
+        "reference_model": "gmvp_factor",
+        "max_abs_monthly_difference": 2.8449465006019636e-16
+      }
+    }
+  }
+}
