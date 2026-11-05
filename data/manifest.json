@@ -37,6 +37,30 @@
       "compression": "gzip"
     },
     {
+      "path": "data/selection_inputs/crsp_monthly_ciz.csv.gz",
+      "bytes": 43147366,
+      "sha256": "bc239c4410a94db0c77007e159a8c4858d7f2d1e80b8be710c6c998e6c6a6807",
+      "required_for_report": false,
+      "original_bytes": 219891289,
+      "original_sha256": "494bdaa824a329f2cf0a9a3cb172fba4fde08352f19fe6912898390d29965a61",
+      "compression": "gzip"
+    },
+    {
+      "path": "data/selection_inputs/daily_signals.csv.gz",
+      "bytes": 111880881,
+      "sha256": "3778c929357282925494766f7c91c490eccf2e6beb2659aff047ee9faf4e6aa2",
+      "required_for_report": false,
+      "original_bytes": 261540838,
+      "original_sha256": "77ab4a39d7fcda221f37bb5a994eeaad196f9a1b12409b3873ea4a4521904952",
+      "compression": "gzip"
+    },
+    {
+      "path": "data/selection_inputs/ff5_monthly.csv",
+      "bytes": 52469,
+      "sha256": "e13cb9754cb0468e2f15d47e92fb9f06f0dd0fb555efcbc1a77acbd37dc4d111",
+      "required_for_report": false
+    },
+    {
       "path": "data/selections/defensive_selection.csv",
       "bytes": 477635,
       "sha256": "ca40a1003d37589a9ef37ee0612428dce92b6bdfb320e5213a473c92392bc009",

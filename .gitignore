@@ -13,6 +13,7 @@
 !/data/
 !/results/
 !/paper/
+!/selection/
 
 __pycache__/
 *.py[cod]

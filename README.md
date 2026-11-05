@@ -16,7 +16,7 @@ The experiment asks whether portfolio optimization adds value **conditional on a
 
 ### 1. Clone the code and data
 
-Install Git LFS before cloning. Four large input files are stored with Git LFS; ordinary pointer files are insufficient to run the experiment.
+Install Git LFS before cloning. Six large input files are stored with Git LFS; ordinary pointer files are insufficient to run the experiment.
 
 ```bash
 git lfs install
@@ -122,13 +122,14 @@ results/reference/          Supplied final-report tables and figures
 results/validation/         Recorded reproduction checks, certificates, and environment
 results/reproduced/          Generated outputs; excluded from version control
 paper/                      Supplied final report, LaTeX source, and bibliography
+selection/                  Original selection-generation code (rebuilds data/selections/)
 ```
 
 The supplementary company-fundamentals source is included intact, but the final conditional-allocation experiment does not consume it. Earlier exploratory benchmarks and slide-production files are outside this package's scope.
 
 ## Reproducibility scope
 
-Reproduction begins with the supplied monthly selection files. The upstream daily beta inputs, full cross-sectional score universe, and original selection-generation code are not present in the project materials. The package therefore reproduces allocation and evaluation conditional on the selections; it does not claim to regenerate the original factor search or establish a causal selection premium.
+The allocation experiment begins with the supplied monthly selection files. The code that generated those selections and its inputs, including the daily beta file, are in [`selection/`](selection/README.md) and `data/selection_inputs/`. Running `python selection/export_selection_b.py` and `python selection/export_selection_momentum.py` reproduces both selection files byte for byte. The code that aggregated CRSP daily records into `daily_signals.csv` was not kept, so that file is an input. The package reproduces allocation and evaluation conditional on the selections. It does not establish a causal selection premium.
 
 The supplied reference tables are retained independently of generated outputs. `scripts/compare_reference.py` checks table keys, numeric values, and nonnumeric fields with documented floating-point tolerances. The provided report remains the reference artifact; a new build writes a separate report under the output directory. The data inventory documents source provenance despite using descriptive filenames.
 
