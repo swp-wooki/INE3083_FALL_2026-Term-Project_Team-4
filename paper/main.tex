@@ -157,7 +157,7 @@ Volatility-normalized regressions yield positive coefficients and Sharpe ratios 
 \subsubsection{Portfolio Size, Retention Rules, and Industry Constraints}
 
 
-The portfolio holds $K=30$ stocks. Incumbents may remain while ranked within 45; other places go to the highest-ranked eligible stocks. This buffer reduces rank-induced turnover, although the selected-stock file cannot isolate its cost savings from the return effects of retaining lower-ranked stocks. At most nine stocks may belong to one two-digit SIC industry. This count limit differs from a 30\% industry-weight cap. Individual portfolio weights are capped at $2/K$.
+The portfolio holds $K=30$ stocks. Incumbents may remain while ranked within 45; other places go to the highest-ranked eligible stocks. This buffer reduces rank-induced turnover: under the same industry and position limits, the memorandum reports monthly turnover of 22\% and Sharpe 1.07 without the buffer, versus 14\% and 1.11 with it \cite{teamrecord}. At most nine stocks may belong to one two-digit SIC industry. This count limit differs from a 30\% industry-weight cap. Individual portfolio weights are capped at $2/K$.
 
 Reported full-sample Sharpe ratios vary little for $K\geq25$ (approximately 1.03--1.11), while annual selection produces $K$ from 10 to 100. The five-year rolling procedure yields Sharpe 0.87 for 2008--2020, versus 0.64 for the market. For 2013--2020, a fixed ten-year sample selects $K=15$ and yields 0.86 versus market 1.04; the rolling ten-year scheme yields 1.02. These sensitivities preclude treating $K=30$ as uniquely optimal.
 
