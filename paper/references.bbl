@@ -21,6 +21,17 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{bab}
+A.~Frazzini and L.~H. Pedersen, ``Betting against beta,'' \emph{Journal of
+  Financial Economics}, vol. 111, no.~1, pp. 1--25, 2014, supplied manuscript:
+  NBER Working Paper 16601, Dec. 2010; doi:
+  \href{https://doi.org/10.1016/j.jfineco.2013.10.005}{\nolinkurl{10.1016/j.jfineco.2013.10.005}}.
+
+\bibitem{coskew}
+C.~R. Harvey and A.~Siddique, ``Conditional skewness in asset pricing tests,''
+  \emph{The Journal of Finance}, vol.~55, no.~3, pp. 1263--1295, 2000, doi:
+  \href{https://doi.org/10.1111/0022-1082.00247}{\nolinkurl{10.1111/0022-1082.00247}}.
+
 \bibitem{markowitz}
 H.~Markowitz, ``Portfolio selection,'' \emph{The Journal of Finance}, vol.~7,
   no.~1, pp. 77--91, 1952, doi:
@@ -43,21 +54,24 @@ O.~Ledoit and M.~Wolf, ``Honey, {I} shrunk the sample covariance matrix,''
   \emph{Bernoulli}, vol.~28, no.~3, pp. 1519--1547, 2022, doi:
   \href{https://doi.org/10.3150/20-BEJ1315}{\nolinkurl{10.3150/20-BEJ1315}}.
 
-\bibitem{bab}
-A.~Frazzini and L.~H. Pedersen, ``Betting against beta,'' \emph{Journal of
-  Financial Economics}, vol. 111, no.~1, pp. 1--25, 2014, supplied manuscript:
-  NBER Working Paper 16601, Dec. 2010; doi:
-  \href{https://doi.org/10.1016/j.jfineco.2013.10.005}{\nolinkurl{10.1016/j.jfineco.2013.10.005}}.
-
-\bibitem{coskew}
-C.~R. Harvey and A.~Siddique, ``Conditional skewness in asset pricing tests,''
-  \emph{The Journal of Finance}, vol.~55, no.~3, pp. 1263--1295, 2000, doi:
-  \href{https://doi.org/10.1111/0022-1082.00247}{\nolinkurl{10.1111/0022-1082.00247}}.
-
 \bibitem{overfit}
 D.~H. Bailey, J.~M. Borwein, M.~L. de~Prado, and Q.~J. Zhu, ``The probability
   of backtest overfitting,'' \emph{Journal of Computational Finance}, vol.~20,
   no.~4, pp. 39--69, 2017.
+
+\bibitem{selectioncode}
+{Project Team}, ``Stock-selection code and inputs,'' \texttt{selection/} and
+  \texttt{data/selection\_inputs/} in the project repository, 2026, rebuilds
+  both selection files from the course panel, a CRSP monthly extract, monthly
+  daily-return characteristics, and Fama--French factors.
+
+\bibitem{aqrbabdata}
+\BIBentryALTinterwordspacing
+{AQR Capital Management}, ``Betting against beta: Equity factors data,
+  monthly,'' 2026, u.S. equity series; study download: Nov. 3, 2026. [Online].
+  Available:
+  \url{https://www.aqr.com/Insights/Datasets/Betting-Against-Beta-Equity-Factors-Monthly}
+\BIBentrySTDinterwordspacing
 
 \bibitem{crsp}
 \BIBentryALTinterwordspacing
@@ -77,11 +91,10 @@ M.~Baker, B.~Bradley, and J.~Wurgler, ``Benchmarks as limits to arbitrage:
 {Project Team}, ``Low-risk/coskewness defensive {Top-K} strategy,'' 2026,
   unpublished research memorandum, Notion export supplied with the project.
 
-\bibitem{selectioncode}
-{Project Team}, ``Stock-selection code and inputs,'' 2026, \texttt{selection/}
-  and \texttt{data/selection\_inputs/} in the project repository; rebuilds both
-  selection files from the course panel, a CRSP monthly extract, monthly
-  daily-return characteristics, and Fama--French factors.
+\bibitem{famamacbeth}
+E.~F. Fama and J.~D. MacBeth, ``Risk, return, and equilibrium: Empirical
+  tests,'' \emph{Journal of Political Economy}, vol.~81, no.~3, pp. 607--636,
+  1973, doi: \href{https://doi.org/10.1086/260061}{\nolinkurl{10.1086/260061}}.
 
 \bibitem{brandtppp}
 \BIBentryALTinterwordspacing
