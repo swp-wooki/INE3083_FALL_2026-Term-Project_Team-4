@@ -33,7 +33,6 @@ import os                                    # 경로 처리
 import warnings                              # 경고 출력
 import numpy as np                           # 수치 계산
 import pandas as pd                          # 데이터프레임 처리
-import statsmodels.api as sm                 # 회귀분석(OLS, HAC 표준오차)
 from scipy import stats                      # 정규/카이제곱 분포, 순위상관
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))           # 이 파일이 있는 폴더(selection)
@@ -422,6 +421,8 @@ def max_drawdown(r: pd.Series) -> float:
 
 def nw_mean_test(x: pd.Series, lags: int):
     """평균이 0인지 Newey-West t검정 → (평균, t, p)"""
+    import statsmodels.api as sm
+
     x = x.dropna()                                            # 결측 제거
     res = sm.OLS(x.values, np.ones(len(x))).fit(cov_type="HAC", cov_kwds={"maxlags": lags})  # 상수항 회귀
     return res.params[0], res.tvalues[0], res.pvalues[0]      # 평균, t값, p값
@@ -429,6 +430,8 @@ def nw_mean_test(x: pd.Series, lags: int):
 
 def ff3_regression(r: pd.Series, ff: pd.DataFrame, lags: int) -> dict:
     """FF3 회귀: (r − rf) = α + β·MKT + s·SMB + h·HML  (HAC 표준오차)"""
+    import statsmodels.api as sm
+
     f = ff.reindex(r.index)                                   # 기간 맞추기
     ex = r - f["RF"]                                          # 초과수익
     X = sm.add_constant(f[["Mkt-RF", "SMB", "HML"]])          # 설명변수 + 상수

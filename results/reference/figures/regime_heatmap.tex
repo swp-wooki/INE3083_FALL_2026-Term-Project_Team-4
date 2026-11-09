@@ -3,8 +3,8 @@
 \definecolor{series0}{HTML}{273449}
 \definecolor{series1}{HTML}{0072B2}
 \definecolor{series2}{HTML}{009E73}
-\definecolor{series3}{HTML}{D55E00}
-\definecolor{series4}{HTML}{707985}
+\definecolor{series3}{HTML}{707985}
+\definecolor{series4}{HTML}{D55E00}
 \definecolor{series5}{HTML}{AA72A1}
 \begin{tikzpicture}[x=1cm,y=1cm]
 \node[align=center,font=\fontsize{7.5}{8.5}\selectfont] at (0.000,1.01){Bull\\I\\2003-02\\2007-06\\$n=53$};
@@ -520,7 +520,7 @@
 \definecolor{cellfill}{HTML}{f8f4f2}
 \fill[cellfill] (9.525,-5.950) rectangle (10.795,-5.610);
 \node[font=\fontsize{7.5}{8.5}\selectfont,text=black!90] at (10.160,-5.780){-1.6};
-\node[anchor=east,font=\fontsize{8}{9}\selectfont] at (-0.75,-6.120){\textbf{S\&P 500 (price)}};
+\node[anchor=east,font=\fontsize{8}{9}\selectfont] at (-0.75,-6.120){S\&P 500 (price)};
 \definecolor{cellfill}{HTML}{7f0823}
 \fill[cellfill] (-0.635,-6.290) rectangle (0.635,-5.950);
 \node[font=\fontsize{7.5}{8.5}\selectfont,text=white] at (0.000,-6.120){-65.5};
@@ -548,7 +548,7 @@
 \definecolor{cellfill}{HTML}{f7f6f6}
 \fill[cellfill] (9.525,-6.290) rectangle (10.795,-5.950);
 \node[font=\fontsize{7.5}{8.5}\selectfont,text=black!90] at (10.160,-6.120){-0.4};
-\node[anchor=east,font=\fontsize{8}{9}\selectfont] at (-0.75,-6.460){CRSP market};
+\node[anchor=east,font=\fontsize{8}{9}\selectfont] at (-0.75,-6.460){\textbf{CRSP market}};
 \definecolor{cellfill}{HTML}{e98b6e}
 \fill[cellfill] (-0.635,-6.630) rectangle (0.635,-6.290);
 \node[font=\fontsize{7.5}{8.5}\selectfont,text=black!90] at (0.000,-6.460){-33.0};
@@ -814,8 +814,8 @@
 \node[font=\fontsize{7.5}{8.5}\selectfont,anchor=north] at (5.000,-7.510){+0};
 \node[font=\fontsize{7.5}{8.5}\selectfont,anchor=north] at (6.800,-7.510){+35};
 \node[font=\fontsize{7.5}{8.5}\selectfont,anchor=north] at (8.600,-7.510){+70};
-\node[font=\fontsize{8}{9}\selectfont] at (5.000,-8.140){Cumulative return minus Market-cap weight (percentage points)};
+\node[font=\fontsize{8}{9}\selectfont] at (5.000,-8.140){Cumulative return minus Capped VW (percentage points)};
 \end{tikzpicture}
-\caption{Cumulative-return differences from market-capitalization weighting, in percentage points. Blue denotes higher terminal wealth and red lower wealth on a common symmetric scale. Rows follow methodological groups; the bold S\&P 500 label highlights the primary price benchmark, not significance. Headings give observed dates and monthly counts. Strategies include 20-basis-point round-trip costs; market indices are uncosted. S\&P 500 excludes dividends, whereas CRSP and FF include them. Unequal regime lengths limit comparisons across columns; colors do not indicate significance.}
+\caption{Cumulative return minus Capped VW in each regime (percentage points). Blue indicates a higher terminal value and red a lower one; color does not indicate significance. Rows group allocations by method. CRSP, the primary market comparison, appears in bold. Market indices incur no strategy costs; the S\&P 500 series excludes dividends.}
 \label{fig:regime_heatmap}
 \end{figure*}

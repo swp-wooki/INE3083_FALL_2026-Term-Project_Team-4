@@ -1,0 +1,29 @@
+{
+  "experiment": "ext09_alpha_bab",
+  "title": "FF5 알파에 BAB 추가 (⑨)",
+  "run_at": "2026-11-03T13:38:56",
+  "command": "python extensions\\ext09_alpha_bab.py",
+  "git_commit": "b8c5289afca8f877fc60b8b176d8353638c187ac",
+  "original_files_modified": false,
+  "python": "3.11.1",
+  "returns_source": "results/reference/monthly_returns.csv (total_observed_drift10)",
+  "returns_sha256": "2d159206cba0f20c09dfcdf1216ad4547360e859f2d4fa86ac5db01d5a372704",
+  "bab_source": "AQR public US BAB series; see extensions/external_data",
+  "checks": {
+    "report_ff5_alpha_full": {
+      "alpha": 0.05670757654309634,
+      "t": 3.993530111600963,
+      "max_abs_difference": 1.7763568394002505e-15
+    },
+    "report_ff5_alpha_2003_2011": {
+      "alpha": 0.09691240135995122,
+      "t": 5.044850009606672,
+      "max_abs_difference": 1.7763568394002505e-15
+    },
+    "report_ff5_alpha_2012_2020": {
+      "alpha": 0.022493581530549034,
+      "t": 1.2223258700587634,
+      "max_abs_difference": 3.1086244689504383e-15
+    }
+  }
+}

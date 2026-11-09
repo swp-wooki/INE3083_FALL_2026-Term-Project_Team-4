@@ -1,0 +1,12 @@
+{
+  "BV": {
+    "market_beta": 0.5296967224624399,
+    "min_observations": 17,
+    "max_observations": 36
+  },
+  "BVC": {
+    "market_beta": 0.7498857317455755,
+    "min_observations": 36,
+    "max_observations": 36
+  }
+}

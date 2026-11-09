@@ -26,6 +26,7 @@ from matplotlib.colors import TwoSlopeNorm, to_hex
 
 OUT = P / "figures"
 PRIMARY = "total_observed_drift10"
+PRIMARY_MARKET = "CRSP_market"
 SERIES = [
     "source_weight",
     "equal_weight",
@@ -35,7 +36,7 @@ SERIES = [
     "FF_market",
 ]
 NAMES = {
-    "source_weight": "Market-cap weight",
+    "source_weight": "Capped VW",
     "equal_weight": "Equal weight",
     "gmvp_sample": "Sample GMVP",
     "gmvp_constant_corr": "Constant-corr. GMVP",
@@ -58,11 +59,11 @@ NAMES = {
     "FF_market": "FF market",
     "SP500": "S&P 500 (price)",
 }
-COLORS = dict(zip(SERIES, ["#273449", "#0072B2", "#009E73", "#D55E00", "#707985", "#AA72A1"]))
+COLORS = dict(zip(SERIES, ["#273449", "#0072B2", "#009E73", "#707985", "#D55E00", "#AA72A1"]))
 MPL_DASH = dict(
     zip(
         SERIES,
-        ["-", (0, (5, 2)), (0, (5, 1.4, 1, 1.4)), "-", (0, (1, 1.6)), (0, (3, 1.5))],
+        ["-", (0, (5, 2)), (0, (5, 1.4, 1, 1.4)), (0, (1, 1.6)), "-", (0, (3, 1.5))],
     )
 )
 TEX_DASH = dict(
@@ -72,8 +73,8 @@ TEX_DASH = dict(
             "",
             "dashed",
             "dash pattern=on 5pt off 1.4pt on 1pt off 1.4pt",
-            "",
             "densely dotted",
+            "",
             "dash pattern=on 3pt off 1.5pt",
         ],
     )
@@ -121,7 +122,7 @@ def tex_name(model):
 
 
 def plot_style(model):
-    width = 1.65 if model == "SP500" else 1.05
+    width = 1.65 if model == PRIMARY_MARKET else 1.05
     return f"color=series{SERIES.index(model)},line width={width}pt,{TEX_DASH[model]}"
 
 
@@ -145,7 +146,7 @@ def legend_tex():
         + plot_style(m)
         + r"] (0,0)--(0.47,0);}"
         + r"\ "
-        + (r"\textbf{" + tex_name(m) + "}" if m == "SP500" else tex_name(m))
+        + (r"\textbf{" + tex_name(m) + "}" if m == PRIMARY_MARKET else tex_name(m))
         for m in SERIES
     ]
     return (
@@ -289,7 +290,7 @@ def full_sample(all_returns, regimes):
                 wealth[model] if k == 0 else drawdown[model],
                 color=COLORS[model],
                 linestyle=MPL_DASH[model],
-                lw=1.9 if model == "SP500" else 1.15,
+                lw=1.9 if model == PRIMARY_MARKET else 1.15,
                 label=NAMES[model],
             )
         ax.set_xlim(0, n)
@@ -330,7 +331,7 @@ def full_sample(all_returns, regimes):
         fontsize=7.6,
     )
     for label in legend.get_texts():
-        if label.get_text() == NAMES["SP500"]:
+        if label.get_text() == NAMES[PRIMARY_MARKET]:
             label.set_weight("bold")
     fig.subplots_adjust(left=0.105, right=0.985, bottom=0.08, top=0.85)
     save_png(fig, "wealth_drawdown")
@@ -418,12 +419,7 @@ def full_sample(all_returns, regimes):
         + "".join(axes)
         + r"\end{groupplot}\end{tikzpicture}"
     )
-    caption = (
-        r"Wealth and drawdown, February 2003--December 2020. Log wealth starts at one; drawdown includes the initial peak. "
-        r"Bands mark nine regimes, with crises in pale red. The thick orange line highlights the primary S\&P 500 price benchmark, "
-        r"which excludes dividends; CRSP and FF include distributions. Strategies include 20-basis-point round-trip costs; indices are uncosted. "
-        r"Constant correlation illustrates a structural covariance rule independently of its performance ranking."
-    )
+    caption = r"Net cumulative wealth (log scale) and drawdown from the running peak, February 2003--December 2020. Shading marks the nine regimes; the heavy orange line is the CRSP total-return market. The FF market includes dividends; the S\&P 500 price index does not. Monthly observations omit intramonth extrema."
     return float_tex(body, caption, "fig:wealth")
 
 
@@ -481,7 +477,7 @@ def regime_paths(regimes):
                 values,
                 color=COLORS[model],
                 linestyle=MPL_DASH[model],
-                lw=1.8 if model == "SP500" else 1.0,
+                lw=1.8 if model == PRIMARY_MARKET else 1.0,
                 label=NAMES[model],
             )
             code += (
@@ -517,7 +513,7 @@ def regime_paths(regimes):
         handlelength=2.7,
     )
     for label in legend.get_texts():
-        if label.get_text() == NAMES["SP500"]:
+        if label.get_text() == NAMES[PRIMARY_MARKET]:
             label.set_weight("bold")
     fig.subplots_adjust(left=0.085, right=0.985, top=0.89, bottom=0.075, wspace=0.18, hspace=0.53)
     save_png(fig, "regime_paths")
@@ -535,13 +531,7 @@ def regime_paths(regimes):
         + "".join(axes)
         + r"\end{groupplot}\end{tikzpicture}"
     )
-    caption = (
-        r"Regime wealth rebased to one, with common vertical scales and elapsed-month axes. "
-        r"The thick orange S\&P 500 line and other styles match Fig.~\ref{fig:wealth}. "
-        r"Strategies include 20-basis-point round-trip costs; all indices are uncosted, and only S\&P 500 excludes dividends. "
-        r"Bull I starts in February 2003 and Recovery II ends in December 2020. February 2020 belongs only to Crisis II. "
-        r"Unequal durations and short samples limit comparisons."
-    )
+    caption = r"Wealth within each regime, rebased to one. Panels share a vertical scale; the horizontal axis shows elapsed months. CRSP (heavy orange) includes dividends. Each panel stops at the last observed month; February 2020 belongs to Crisis II."
     return float_tex(body, caption, "fig:regime_paths")
 
 
@@ -566,7 +556,7 @@ def heatmap_figure(heat, regimes):
     ax.xaxis.tick_top()
     ax.tick_params(axis="x", length=0, pad=7)
     ax.set_yticks(np.arange(len(HEAT_ORDER)), [NAMES[m] for m in HEAT_ORDER], fontsize=8)
-    ax.get_yticklabels()[HEAT_ORDER.index("SP500")].set_weight("bold")
+    ax.get_yticklabels()[HEAT_ORDER.index(PRIMARY_MARKET)].set_weight("bold")
     ax.tick_params(axis="y", length=0, pad=6)
     for spine in ax.spines.values():
         spine.set_visible(False)
@@ -585,7 +575,7 @@ def heatmap_figure(heat, regimes):
         ax.axhline(boundary, color="white", lw=1.6)
     cb = fig.colorbar(im, ax=ax, orientation="horizontal", fraction=0.046, pad=0.045, aspect=35)
     cb.set_ticks([-limit, -limit / 2, 0, limit / 2, limit])
-    cb.set_label("Cumulative return minus Market-cap weight (percentage points)", fontsize=8)
+    cb.set_label("Cumulative return minus Capped VW (percentage points)", fontsize=8)
     cb.outline.set_visible(False)
     fig.subplots_adjust(left=0.29, right=0.985, top=0.83, bottom=0.075)
     save_png(fig, "regime_heatmap")
@@ -609,7 +599,7 @@ def heatmap_figure(heat, regimes):
         )
     for i, model in enumerate(HEAT_ORDER):
         y = -i * dy
-        name = r"\textbf{" + tex_name(model) + "}" if model == "SP500" else tex_name(model)
+        name = r"\textbf{" + tex_name(model) + "}" if model == PRIMARY_MARKET else tex_name(model)
         code += (
             r"\node[anchor=east,font=\fontsize{8}{9}\selectfont] at (-0.75,"
             + f"{y:.3f}"
@@ -669,16 +659,11 @@ def heatmap_figure(heat, regimes):
     code += (
         r"\node[font=\fontsize{8}{9}\selectfont] at ("
         + f"{left + width / 2:.3f},{cy - 0.67:.3f}"
-        + r"){Cumulative return minus Market-cap weight (percentage points)};"
+        + r"){Cumulative return minus Capped VW (percentage points)};"
         + "\n"
     )
     code += r"\end{tikzpicture}"
-    caption = (
-        r"Cumulative-return differences from market-capitalization weighting, in percentage points. Blue denotes higher terminal wealth and red lower wealth on a common symmetric scale. "
-        r"Rows follow methodological groups; the bold S\&P 500 label highlights the primary price benchmark, not significance. "
-        r"Headings give observed dates and monthly counts. Strategies include 20-basis-point round-trip costs; market indices are uncosted. "
-        r"S\&P 500 excludes dividends, whereas CRSP and FF include them. Unequal regime lengths limit comparisons across columns; colors do not indicate significance."
-    )
+    caption = r"Cumulative return minus Capped VW in each regime (percentage points). Blue indicates a higher terminal value and red a lower one; color does not indicate significance. Rows group allocations by method. CRSP, the primary market comparison, appears in bold. Market indices incur no strategy costs; the S\&P 500 series excludes dividends."
     return float_tex(code, caption, "fig:regime_heatmap"), limit
 
 
@@ -734,6 +719,7 @@ def build_figures():
         "regimes": [{k: r[k] for k in ["name", "type", "start", "end", "n"]} for r in regimes],
         "saved_regime_cumulative_return_max_abs_error": error,
         "figure_series": SERIES,
+        "primary_market": PRIMARY_MARKET,
         "heatmap_row_order": HEAT_ORDER,
         "heatmap_color_limits_pp": [-limit, limit],
         "heatmap_value_min_pp": float(heat.min().min()),
@@ -763,31 +749,14 @@ def embed_figures(text, figures=None):
         r"(?:% Generated by build_figures.py from saved experiment returns\.\n)?\\begin\{figure\*?\}.*?\\end\{figure\*?\}[ \t]*\n*",
         re.S,
     )
-    for label in figures:
-        matching = [
-            m for m in float_pattern.finditer(text) if r"\label{" + label + "}" in m.group()
-        ]
-        if label == "fig:wealth":
-            assert len(matching) == 1, "Expected one existing full-sample wealth figure."
-            m = matching[0]
-            text = text[: m.start()] + figures[label].rstrip() + "\n\n" + text[m.end() :]
-        else:
-            for m in reversed(matching):
-                text = text[: m.start()] + text[m.end() :]
-    anchor = r"\subsection{Additional Results: Mechanisms and Robustness}"
-    assert anchor in text, "Missing additional-results insertion point."
-    # Keep the regime figures before the section's float barrier when rebuilding.
-    if r"\FloatBarrier" + "\n" + anchor in text:
-        anchor = r"\FloatBarrier" + "\n" + anchor
-    text = text.replace(
-        anchor,
-        figures["fig:regime_paths"].rstrip()
-        + "\n\n"
-        + figures["fig:regime_heatmap"].rstrip()
-        + "\n\n"
-        + anchor,
-        1,
-    )
+    for label, snippet in figures.items():
+        matches = [m for m in float_pattern.finditer(text) if r"\label{" + label + "}" in m.group()]
+        if len(matches) != 1:
+            raise ValueError(
+                f"Expected exactly one existing figure labeled {label}; found {len(matches)}"
+            )
+        match = matches[0]
+        text = text[: match.start()] + snippet.rstrip() + "\n\n" + text[match.end() :]
     if r"\usepgfplotslibrary{groupplots}" not in text:
         text = text.replace(
             r"\usepackage{pgfplots}",

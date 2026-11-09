@@ -15,7 +15,9 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-MARKETS = ["SP500", "CRSP_market", "FF_market"]
+from .report import table_bounds
+
+MARKETS = ["CRSP_market", "FF_market", "SP500"]
 
 
 def digest(path):
@@ -45,16 +47,50 @@ def statistics_from_returns(values, rf):
     )
 
 
-def benchmark_rows(article, label):
-    """Read benchmark rows across every tabular block within the labeled float."""
-    block = article[article.index(r"\label{" + label + "}") :]
-    end = re.search(r"\\end\{table\*?\}", block)
-    if end is None:
-        raise ValueError(f"No table end found for {label}")
-    return [line for line in block[: end.start()].splitlines() if r"\hyperref[alloc:SP500]" in line]
+def benchmark_rows(article, label, model="CRSP_market"):
+    """Collect this market's rows in all panels of exactly one labeled float."""
+    start, end = table_bounds(article, label)
+    tag = r"\hyperref[alloc:" + model + "]"
+    return [line for line in article[start:end].splitlines() if tag in line]
 
 
-def verify(previous=None):
+def benchmark_emphasis_ok(article, label, count):
+    """Only CRSP is bold; all its main-table values or its regime return is underlined."""
+    links = {model: benchmark_rows(article, label, model) for model in MARKETS}
+    if any(len(rows) != count for rows in links.values()):
+        return False
+    for model, rows in links.items():
+        for line in rows:
+            cells = line.split("& ")  # TeX's escaped ampersand in S\&P has no following space.
+            is_primary = model == "CRSP_market"
+            if (r"\textbf{\hyperref[alloc:" + model + "]" in cells[0]) != is_primary:
+                return False
+            underlined = [i for i, cell in enumerate(cells[1:], 1) if r"\underline{" in cell]
+            expected = ([1, 2, 3, 4] if label == "tab:main" else [1]) if is_primary else []
+            if underlined != expected:
+                return False
+    return True
+
+
+def primary_figure_style_ok(tex, series):
+    """Verify the bold legend and unique thick orange line correspond to CRSP's data."""
+    index = series.index("CRSP_market")
+    if r"\definecolor{series" + str(index) + "}{HTML}{D55E00}" not in tex:
+        return False
+    if r"\textbf{CRSP market}" not in tex or r"\textbf{S\&P 500 (price)}" in tex:
+        return False
+    styles = re.findall(
+        r"\\addplot\[color=series(\d+),line width=([\d.]+)pt,[^\]]*\] coordinates", tex
+    )
+    if not styles or len(styles) % len(series) or len(styles) != tex.count(r"\addplot["):
+        return False
+    return all(
+        int(i) == j % len(series) and np.isclose(float(width), 1.65 if int(i) == index else 1.05)
+        for j, (i, width) in enumerate(styles)
+    )
+
+
+def verify(previous=None, article_path=None):
     source = ROOT / "data/raw/market_benchmarks.csv"
     raw = pd.read_csv(source).set_index("month")
     b = pd.read_csv(P / "benchmark_returns.csv").set_index("month")
@@ -183,15 +219,32 @@ def verify(previous=None):
             error = max(error, path_error(regime_paths[j * len(series) + i], wealth))
     check("All full-period and regime plot coordinates reconciled", error, 5.1e-9)
 
-    article = (P / "paper/main.tex").read_text()
+    article = (article_path or P / "paper/main.tex").read_text()
     for label, expected_rows in [("tab:main", 1), ("tab:period", 9)]:
-        rows = benchmark_rows(article, label)
         check(
-            label + ": S&P rows highlighted",
-            int(
-                len(rows) != expected_rows
-                or any(r"\textbf{" not in line or r"\underline{" not in line for line in rows)
-            ),
+            label + ": only CRSP market rows highlighted",
+            int(not benchmark_emphasis_ok(article, label, expected_rows)),
+        )
+    for name, tex in [("wealth_drawdown", full_code), ("regime_paths", regime_code)]:
+        check(
+            name + ": CRSP is the thick orange total-return benchmark",
+            int(not primary_figure_style_ok(tex, series)),
+        )
+    heat_code = (P / "figures/regime_heatmap.tex").read_text()
+    check(
+        "Heatmap highlights CRSP rather than the price index",
+        int(r"\textbf{CRSP market}" not in heat_code or r"\textbf{S\&P 500 (price)}" in heat_code),
+    )
+    # Check the *embedded* figures too: verifying separate figure files alone cannot
+    # detect an old S&P-highlighted figure left in the compiled manuscript.
+    for label, code in [
+        ("fig:wealth", full_code),
+        ("fig:regime_paths", regime_code),
+        ("fig:regime_heatmap", heat_code),
+    ]:
+        snippet = code[code.index(r"\begin{figure") :].strip()
+        check(
+            label + ": manuscript embeds the regenerated figure", int(article.count(snippet) != 1)
         )
 
     if previous:
@@ -213,8 +266,10 @@ def verify(previous=None):
         complete=all(c["passed"] for c in checks),
         checks=checks,
         source_sha256=digest(source),
-        source_column="sp500_return (original sprtrn)",
-        return_definition="S&P 500 price return; excludes dividends",
+        primary_market="CRSP_market",
+        source_column="vw_market_return",
+        return_definition="CRSP value-weighted total market return, including distributions",
+        supplemental_price_series="sp500_return (original sprtrn); excludes dividends",
         primary_cost="20 bp round trip for strategies; no index cost deducted",
         artifacts_sha256={name: digest(P / name) for name in used},
         code_sha256={
@@ -230,4 +285,10 @@ def verify(previous=None):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--previous", type=Path)
-    verify(parser.parse_args().previous)
+    parser.add_argument(
+        "--article",
+        type=Path,
+        help="Verify the reviewed source instead of the generated manuscript.",
+    )
+    args = parser.parse_args()
+    verify(args.previous, args.article)

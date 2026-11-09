@@ -1,4 +1,4 @@
-# Versions used to regenerate data/selections/ byte for byte (Python 3.13.5).
+# Versions used to regenerate data/selections/ byte for byte (Python 3.13.5, UTF-8, CRLF).
 numpy==2.3.2
 pandas==3.0.6
 scipy==1.18.1

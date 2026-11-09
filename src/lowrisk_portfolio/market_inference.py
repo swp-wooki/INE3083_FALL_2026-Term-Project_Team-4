@@ -56,7 +56,7 @@ def alpha_hac(y, factors):
 def run():
     inputs = [
         P / "monthly_returns.csv",
-        P / "benchmark_returns.csv",
+        ROOT / "data/raw/market_benchmarks.csv",
         ROOT / "data/raw/factor_returns_monthly.csv",
     ]
     hashes = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs}
@@ -68,9 +68,17 @@ def run():
         .set_index("month")
         .net_return.sort_index()
     )
-    benchmark = pd.read_csv(inputs[1], index_col="month").sort_index()
     factors = read_factors(inputs[2])
     factors.index = factors.index.astype(str)
+    indices = pd.read_csv(inputs[1], index_col="month")
+    if not indices.index.is_unique:
+        raise ValueError("Duplicate month in the supplied market indices")
+    # Use immutable inputs: the report stage writes its own presentation table later.
+    benchmark = indices.loc[strategy.index, ["vw_market_return", "sp500_return"]].rename(
+        columns={"vw_market_return": "CRSP_market", "sp500_return": "SP500"}
+    )
+    benchmark["RF"] = factors.loc[strategy.index, "RF"]
+    benchmark["FF_market"] = factors.loc[strategy.index, "Mkt-RF"] + benchmark.RF
     assert strategy.index.is_unique and len(strategy) == 215
     assert strategy.index.equals(benchmark.index)
     np.testing.assert_allclose(benchmark.RF, factors.loc[strategy.index, "RF"], atol=1e-15)
@@ -138,6 +146,7 @@ def run():
                         hac_lags=HAC_LAGS,
                         round_trip_cost_bps=20,
                         returns_sha256=hashes[inputs[0].name],
+                        benchmarks_file=str(inputs[1].relative_to(ROOT)),
                         benchmarks_sha256=hashes[inputs[1].name],
                         factors_sha256=hashes[inputs[2].name],
                     )

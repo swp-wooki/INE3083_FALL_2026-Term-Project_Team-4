@@ -41,4 +41,6 @@ python selection/export_selection_momentum.py
 
 Outputs and the `MarketData` cache (`v2/marketdata_classified.pkl`) are written to `results/reproduced/selection/`. Set `SELECTION_OUTPUT_DIR` to write somewhere else. The first run builds the cache, which takes several minutes. Later runs reuse it.
 
-For a fresh run with Python 3.13.5 and the versions in `selection/requirements.txt`, both outputs matched the committed files in `data/selections/` byte for byte (same SHA-256). These versions differ from the allocation package's pins. Use a separate environment.
+Under Python 3.13.5 and the versions in `selection/requirements.txt`, byte-for-byte reproduction also requires the archived UTF-8 encoding and CRLF line endings. Both exporters now write CRLF explicitly on every platform. An LF-only CSV can contain identical records but has a different SHA-256 checksum. These versions differ from the allocation package's pins. Use a separate environment.
+
+The revised report also checks the reconstructed constituent IDs and six-decimal weights against both archived selections. On a POSIX checkout, both exporters produced the archived SHA-256 digests using the main allocation environment (Python 3.13.2, pandas 2.2.3, NumPy 2.2.4) with explicit CRLF.

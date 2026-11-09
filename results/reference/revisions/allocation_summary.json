@@ -1,0 +1,154 @@
+{
+  "scope": "49 additional settings, six baseline paths, separate 36-month EWMA diagnostic",
+  "forecast_definition": "Full-sample annualized sample SD of monthly net returns / arithmetic mean month-ahead sqrt(12*w'Cov*w), using the covariance matrix used for allocation.",
+  "inference": {
+    "block_months": 6,
+    "draws": 2000,
+    "seed": 20261002,
+    "hac_lags": 4,
+    "holm": "Within each reported comparison family"
+  },
+  "downside_condition": {
+    "comparisons": 24,
+    "improvements": 0
+  },
+  "concentration_comparison": {
+    "sector_hhi": {
+      "cc_minus_vw": 0.06242014122590616,
+      "hac_t": 6.245833134942642,
+      "hac_p": 4.2154702708979064e-10
+    },
+    "largest_sector": {
+      "cc_minus_vw": 0.08600540441441722,
+      "hac_t": 5.203487472786459,
+      "hac_p": 1.9558294258329522e-07
+    },
+    "utilities_weight": {
+      "cc_minus_vw": 0.09231260197048796,
+      "hac_t": 5.787403611618866,
+      "hac_p": 7.1482680071728255e-09
+    },
+    "top5": {
+      "cc_minus_vw": 0.00018057028706297738,
+      "hac_t": 1.8140868736545712,
+      "hac_p": 0.06966435211111922
+    }
+  },
+  "additional_settings": 49,
+  "months": 215,
+  "risk_calibration": {
+    "fixed_36_month_gmvp": {
+      "settings": [
+        "sample_36_2K",
+        "sample_36_3K",
+        "sample_36_none",
+        "lw_36_2K",
+        "lw_36_3K",
+        "lw_36_none",
+        "ff5_36_2K",
+        "ff5_36_none",
+        "ff5bab_36_2K",
+        "ff5bab_36_none",
+        "cc_36_2K",
+        "sample_match_bvc",
+        "sample_match_c",
+        "sample_te2",
+        "sample_te3",
+        "sample_neff20",
+        "sample_sic25",
+        "sample_sic30",
+        "cc_match_bvc",
+        "cc_match_c",
+        "cc_te2",
+        "cc_te3",
+        "cc_neff20",
+        "cc_sic25",
+        "cc_sic30",
+        "lw_match_bvc",
+        "lw_match_c",
+        "lw_te2",
+        "lw_te3",
+        "lw_neff20",
+        "lw_sic25",
+        "lw_sic30"
+      ],
+      "count": 32,
+      "minimum": 1.2318419996855123,
+      "minimum_setting": "cc_te2",
+      "maximum": 1.655058657097788,
+      "maximum_setting": "ff5_36_none"
+    },
+    "36_or_longer_window_gmvp": {
+      "settings": [
+        "sample_36_2K",
+        "sample_36_3K",
+        "sample_36_none",
+        "sample_60_2K",
+        "sample_60_3K",
+        "sample_60_none",
+        "lw_36_2K",
+        "lw_36_3K",
+        "lw_36_none",
+        "lw_60_2K",
+        "lw_60_3K",
+        "lw_60_none",
+        "ff5_36_2K",
+        "ff5_36_none",
+        "ff5_60_2K",
+        "ff5_60_none",
+        "ff5bab_36_2K",
+        "ff5bab_36_none",
+        "ff5bab_60_2K",
+        "ff5bab_60_none",
+        "cc_36_2K",
+        "sample_match_bvc",
+        "sample_match_c",
+        "sample_te2",
+        "sample_te3",
+        "sample_neff20",
+        "sample_sic25",
+        "sample_sic30",
+        "cc_match_bvc",
+        "cc_match_c",
+        "cc_te2",
+        "cc_te3",
+        "cc_neff20",
+        "cc_sic25",
+        "cc_sic30",
+        "lw_match_bvc",
+        "lw_match_c",
+        "lw_te2",
+        "lw_te3",
+        "lw_neff20",
+        "lw_sic25",
+        "lw_sic30"
+      ],
+      "count": 42,
+      "minimum": 1.215233573973853,
+      "minimum_setting": "sample_60_2K",
+      "maximum": 1.655058657097788,
+      "maximum_setting": "ff5_36_none"
+    }
+  },
+  "realized_te_limit_2pct": [
+    0.021375463316659616,
+    0.026194627977152808
+  ],
+  "realized_te_limit_3pct": [
+    0.030673114773161758,
+    0.03681527667187674
+  ],
+  "max_relative_objective_gap": 4.982655173547692e-07,
+  "baseline_max_abs_errors": {
+    "source_weight": 2.220446049250313e-16,
+    "sample_36_2K": 1.8041124150158794e-16,
+    "cc_36_2K": 2.498001805406602e-16,
+    "lw_36_2K": 2.42861286636753e-16,
+    "ff5_36_2K": 2.636779683484747e-16,
+    "sample_erc_cap": 2.0122792321330962e-16
+  },
+  "table_rows_checked": {
+    "extwindows": 9,
+    "extconstraints": 10
+  }
+}

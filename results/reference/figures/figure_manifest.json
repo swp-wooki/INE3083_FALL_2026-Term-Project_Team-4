@@ -4,7 +4,7 @@
     "monthly_returns.csv": "1f90bf6f9c34c0b73ceb5f38e581c4663f7ec46e495dec30c1988b4a2ec0baa0",
     "benchmark_returns.csv": "b17d2e9ebea92f03be1ca5dcf22d79a2c4a24e55ab4a9d6d5dd4db89abe2d27a",
     "regime_coverage.csv": "f9168a814f78a449086c702ae7a0028bdf51ed5f06fd35b63a06c2a63cdaa3e0",
-    "regime_metrics.csv": "10eef2dd94f67184e1c37686c344ae089c3338991ff79c8654606735972b8a38"
+    "regime_metrics.csv": "4cdb8be6353e2c25a796345b19d5597163fd0c497364ab22c3556636594425e3"
   },
   "observed_start": "2003-02",
   "observed_end": "2020-12",
@@ -83,6 +83,7 @@
     "CRSP_market",
     "FF_market"
   ],
+  "primary_market": "CRSP_market",
   "heatmap_row_order": [
     "equal_weight",
     "gmvp_sample",

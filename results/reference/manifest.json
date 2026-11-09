@@ -1,5 +1,5 @@
 {
-  "description": "Supplied final-report numerical outputs, retained independently of reproduction runs.",
+  "description": "The original allocation CSVs are supplied reference results. Figures use the reviewed CRSP benchmark; revisions/ records deterministic reconstructions, including disclosed differences from the earlier manuscript.",
   "files": [
     {
       "path": "annual_returns.csv",
@@ -19,23 +19,23 @@
     },
     {
       "path": "figures/figure_manifest.json",
-      "sha256": "60fd8ecd1538a4a615224a962c6053b408fc19c4b782bf139d5104ad5d96b6b4"
+      "sha256": "771497b48155e3cc7a8317dab3bac06cd2760b21cfbecae900c434be67cdd71c"
     },
     {
       "path": "figures/regime_heatmap.png",
-      "sha256": "8fec8a59029221d27c655dda6fdbfbf13b231a47741f80e758f0744715ead246"
+      "sha256": "3f4f27b6ba9b7e1f3d8eee87ace8a3e45183a7259468604ae4ea4045586c9c30"
     },
     {
       "path": "figures/regime_heatmap.tex",
-      "sha256": "5793f4650571bc390ab799f5cd3ba091dc0105c42fe9f3b728983f9a9f254138"
+      "sha256": "11285195424137e0c5663c70a8b3ad247167f0d52880bfb0a8fcc3b709f4339b"
     },
     {
       "path": "figures/regime_paths.png",
-      "sha256": "acb77ec63b3a1bea683d42c44f9d72b97714dc8c576299919c1485861a13bdda"
+      "sha256": "bc6eee8e6b6000819777408e52811476c991733fded6fa2f4a06e406bd15d79b"
     },
     {
       "path": "figures/regime_paths.tex",
-      "sha256": "3788222787ca86457317a853ae059f395e85235af025e89275e14e86329bd388"
+      "sha256": "3cca93a0c2175348011173096c3cfde19384dde1cbf78e89cd6e0ed6f7df8329"
     },
     {
       "path": "figures/regime_return_differences_pp.csv",
@@ -43,11 +43,11 @@
     },
     {
       "path": "figures/wealth_drawdown.png",
-      "sha256": "18f8e2a322addc231297b6a743fb5ad5d717071b24c47da4ab43262bfb785aa3"
+      "sha256": "b14b1246eb06a6397b30b32080fc4b60fde89bfa3d72cd1e7ba73654b0693f61"
     },
     {
       "path": "figures/wealth_drawdown.tex",
-      "sha256": "6836ac43be61dc7894542b0f327d2576fd34b4cacd4859db57c3d7d80c03b8c3"
+      "sha256": "4a9186d5d9d3d01ce9e0a4a03b108586e4fbea339ce5ae20ef528cb05911c785"
     },
     {
       "path": "frozen_selection.csv",
@@ -88,6 +88,106 @@
     {
       "path": "regime_metrics.csv",
       "sha256": "10eef2dd94f67184e1c37686c344ae089c3338991ff79c8654606735972b8a38"
+    },
+    {
+      "path": "revisions/allocation_metrics.csv",
+      "sha256": "0fddd65064829a9eae3f6687ca428ec98b0fc1a23732d118b0ffc02a56919efa"
+    },
+    {
+      "path": "revisions/allocation_monthly_net_returns.csv",
+      "sha256": "4b439bb493bf841273fc14f0b8bd2a7240bd99981fb305084e51e78eb5c316c9"
+    },
+    {
+      "path": "revisions/allocation_paired_inference.csv",
+      "sha256": "1271d27d46a119412bd5cb852e467fdfadab4ee7a86d7703b64e3ec3329b9564"
+    },
+    {
+      "path": "revisions/allocation_risk_calibration.csv",
+      "sha256": "ba55b4cbeedc8e7162435224e6589075ea06363443dc01f0d8cd9a4069162102"
+    },
+    {
+      "path": "revisions/allocation_score_matching.csv",
+      "sha256": "1e2288ff53ab202bb7fd7b06c49572d4fe0934af14926db84dde60826898d820"
+    },
+    {
+      "path": "revisions/allocation_summary.json",
+      "sha256": "c1fa56c67f3fce5eeab246991474d40273b5be551d0e92ded3080597ab80fea5"
+    },
+    {
+      "path": "revisions/bootstrap_precision.csv",
+      "sha256": "a4de5c481c373fb45e285b5314f27d4a0e97f5833f1a80b839258a1df7349726"
+    },
+    {
+      "path": "revisions/capture_windows.csv",
+      "sha256": "28c2dca3b7e1b0b1314f6733188a399469f2f330ad22840f72cca73190981bb5"
+    },
+    {
+      "path": "revisions/crisis_contribution.csv",
+      "sha256": "f7cc41fe6e6bac14a37b760710a9b1717fddd6d4dffa0ff9d28857de57e0ea62"
+    },
+    {
+      "path": "revisions/downside_risk.csv",
+      "sha256": "3d30682e4d2a8a3011b567f730570ecceb41d9b03e1242b3044a6355748432ca"
+    },
+    {
+      "path": "revisions/fourth_signals_blends.csv",
+      "sha256": "1763c9e652018ba5e4c3ccc63002b3936d01e558838c468f47e7e611cc22999e"
+    },
+    {
+      "path": "revisions/joint_fama_macbeth.csv",
+      "sha256": "a87b37fd0bb291fff332911d07505cb93f60aec569ca1f031932ebe180920531"
+    },
+    {
+      "path": "revisions/precrisis_beta.json",
+      "sha256": "7675cfdc925f836ed212e93476944a59643bb0db92d4e8ce55bf38e2c0bc9548"
+    },
+    {
+      "path": "revisions/removal_contrasts.csv",
+      "sha256": "563ef59b20a680fa78eb62439309f2a69429e73d1d2a55b840f0294cc7c50436"
+    },
+    {
+      "path": "revisions/selection_methods.json",
+      "sha256": "11914d9d2fd54d06d1682412ac333aad96ebcda0514a579517b5da9804aaf7bc"
+    },
+    {
+      "path": "revisions/selection_monthly.csv",
+      "sha256": "571a965ce3b995322c4ee3f3d6974ab7fe45ec667bcdcac97465d8b0187fffab"
+    },
+    {
+      "path": "revisions/selection_sensitivity.csv",
+      "sha256": "932fe507e26c8480846602825641d6720231c1a18da3460724e99abc444ae33b"
+    },
+    {
+      "path": "revisions/signal_increment.csv",
+      "sha256": "a40a29ec17b7975882fad33e270c2b4a4aa7b2efc63c07787caef2ed990bed77"
+    },
+    {
+      "path": "revisions/signal_metrics.csv",
+      "sha256": "2e7cb1b25168c4bcc2f55f72d9d551861c838ed59b6e993881e58e75e19249f7"
+    },
+    {
+      "path": "revisions/signal_period_change.json",
+      "sha256": "69ddc0ecf63e1229975bac7ccb31f89f1d981ecea69857a599cf3159ed32015f"
+    },
+    {
+      "path": "revisions/signal_removals.csv",
+      "sha256": "da975c575cb7014146952bf0f2a26aca979da74562c3a36555a6b615d46d490b"
+    },
+    {
+      "path": "revisions/temporal_factor_means.csv",
+      "sha256": "42a8c0044b57a37969e46fe5f668f6d97df15d880195e9bb1850280c7c2088a8"
+    },
+    {
+      "path": "revisions/temporal_interactions.csv",
+      "sha256": "a1d4ed845fe995406cbd6411b44013bbe149b0264fc07e7cedc91b2aa66abdaa"
+    },
+    {
+      "path": "revisions/temporal_regressions.csv",
+      "sha256": "f61934acebb0154af68184777a5ed73f8f348872eaec6fc4b0c95a72283377f2"
+    },
+    {
+      "path": "revisions/temporal_rolling.csv",
+      "sha256": "d665447be3b8f40a7903d75e0a854678ffee477a3cec7d5f85b673aea16bb82a"
     },
     {
       "path": "selected_covariance_structure.csv",

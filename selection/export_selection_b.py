@@ -43,7 +43,7 @@ def main():
     df = pd.DataFrame(rows, columns=COLS)                     # 표
     for c in ["factor_1", "factor_2", "factor_3", "composite_score", "weight"]:  # 소수 자리
         df[c] = df[c].round(6)                                # 6자리
-    df.to_csv(OUT_CSV, index=False, encoding="utf-8")         # 저장(템플릿과 같은 머리행)
+    df.to_csv(OUT_CSV, index=False, encoding="utf-8", lineterminator="\r\n")         # 저장(템플릿과 같은 머리행)
     n = df.groupby("formation_month").size()                  # 월별 종목 수
     print(f"저장: {OUT_CSV}\n행 {len(df):,}, 형성월 {n.size}개 ({n.index.min()} ~ {n.index.max()}), 월별 종목 수 {n.min()}~{n.max()}")  # 요약
     print("결측 TICKER:", int((df["TICKER"] == "").sum() + df["TICKER"].isna().sum()), "/ 결측 팩터:", int(df[COLS[5:]].isna().sum().sum()))  # 점검

@@ -16,6 +16,8 @@ All files are supplied project inputs. Descriptive filenames identify their role
 | `selection_inputs/crsp_monthly_ciz.csv.gz` | WRDS CRSP monthly CIZ extract, 1999-12 to 2020-12, 20 columns; original name `llfzpekib12cqzql.csv` | Selection generation: market cap, SIC, delisting-month returns |
 | `selection_inputs/ff5_monthly.csv` | Fama–French five factors and RF in decimals, from the vintage used when the selections were made | Selection generation: excess returns for coskewness and factor loadings |
 
+The revised report also uses [the archived U.S. monthly BAB series](../extensions/external_data/aqr_bab_usa.csv). The [source record](../extensions/external_data/aqr_bab_usa.source.json) identifies the original AQR workbook, retrieval date, sheet, column and workbook hash. The manifest verifies the actual CSV used by both experiments.
+
 ## Units and alignment
 
 - Security identifiers are retained as `PERMNO` or `permno`, depending on the supplied schema.
@@ -23,7 +25,7 @@ All files are supplied project inputs. Descriptive filenames identify their role
 - The factor source reports percentages; the loader divides by 100 exactly once.
 - Selection weights and factor scores are decimal fractions. `holding_month` must equal `formation_month + 1`.
 - The primary experiment uses observed total returns. A price-return diagnostic in the audit table is not used as a fallback for missing strategy returns.
-- The original raw and prepared files are both included. The source procedure that produced the prepared extract was not supplied. The two selection files can be rebuilt byte for byte from `selection_inputs/` and `raw/security_prices.csv.gz` with the code in `selection/`. The procedure that aggregated CRSP daily records into `daily_signals.csv` was not kept, so that file is an explicit input.
+- The original raw and prepared files are both included. The source procedure that produced the prepared extract was not supplied. The two selection files can be rebuilt byte for byte from `selection_inputs/` and `raw/security_prices.csv.gz` with the pinned selection environment, UTF-8 encoding, and the original CRLF line endings. An LF-only serialization has a different hash. The procedure that aggregated CRSP daily records into `daily_signals.csv` was not kept, so that file is an explicit input.
 
 ## Integrity and retrieval
 
@@ -33,6 +35,6 @@ Six large files use Git LFS. After cloning, run `git lfs pull`, then:
 python scripts/verify_data.py
 ```
 
-Use `--required-only` to skip hashing the supplementary fundamentals archive and the selection inputs. The complete check validates every file, including the unused original archive.
+Use `--required-only` to skip the supplementary fundamentals archive. The selection inputs and the BAB factor are required to reproduce the revised report. The complete check validates every file, including the unused original archive.
 
 The loaders read `.csv.gz` files directly. To recover a plain original, use `gzip -dk data/raw/security_monthly.csv.gz` (or decompress with Python’s `gzip` module). This is optional for every documented execution path.

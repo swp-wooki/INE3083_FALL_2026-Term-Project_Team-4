@@ -41,6 +41,7 @@ def main(argv=None):
     output.mkdir(parents=True, exist_ok=True)
     environment = dict(os.environ, LOWRISK_OUTPUT_DIR=str(output))
     environment.setdefault("MPLCONFIGDIR", str(output / ".matplotlib"))
+    environment["LOWRISK_EXTENSION_INPUT_DIR"] = str(output)
     started = time.perf_counter()
     if args.figures_only:
         for name in (
@@ -56,8 +57,12 @@ def main(argv=None):
             "experiment",
             "mechanisms",
             "selection_comparison",
-            "report",
             "market_inference",
+            "ext09_alpha_bab",
+            "extE_factor_cov",
+            "selection_revisions",
+            "allocation_sensitivity",
+            "report",
             "verify_benchmarks",
         ]
         if args.certify:
@@ -73,12 +78,14 @@ def main(argv=None):
         for stage in stages:
             print(f"\n[{stage}]", flush=True)
             stage_start = time.perf_counter()
-            source_hash = hashlib.sha256(
-                Path(__file__).with_name(stage + ".py").read_bytes()
-            ).hexdigest()
-            subprocess.run(
-                [sys.executable, "-m", f"lowrisk_portfolio.{stage}"], env=environment, check=True
-            )
+            if stage in {"ext09_alpha_bab", "extE_factor_cov"}:
+                source = ROOT / "extensions" / f"{stage}.py"
+                command = [sys.executable, str(source)]
+            else:
+                source = Path(__file__).with_name(stage + ".py")
+                command = [sys.executable, "-m", f"lowrisk_portfolio.{stage}"]
+            source_hash = hashlib.sha256(source.read_bytes()).hexdigest()
+            subprocess.run(command, env=environment, check=True)
             manifest["stages"].append(
                 {
                     "name": stage,

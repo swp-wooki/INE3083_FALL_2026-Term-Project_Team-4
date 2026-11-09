@@ -3,6 +3,7 @@
 *.md text eol=lf
 *.ipynb text eol=lf
 data/** -text
+extensions/external_data/*.csv -text
 data/raw/security_monthly.csv.gz filter=lfs diff=lfs merge=lfs -text
 data/raw/security_prices.csv.gz filter=lfs diff=lfs merge=lfs -text
 data/processed/security_monthly_clean.csv.gz filter=lfs diff=lfs merge=lfs -text

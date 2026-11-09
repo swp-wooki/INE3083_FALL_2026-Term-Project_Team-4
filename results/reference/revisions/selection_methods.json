@@ -1,0 +1,14 @@
+{
+  "bootstrap": {
+    "draws": 2000,
+    "block_months": 6,
+    "seed": 20261109,
+    "method": "paired circular blocks with contiguous period-specific resampling"
+  },
+  "hac": "Bartlett, four lags, asymptotic covariance without degrees-of-freedom adjustment",
+  "long_short": "Gross capitalization-weighted top/bottom 30 percent within eligible ranks; no stock cap",
+  "blend": "Fixed monthly mixture of net strategy sleeve returns; sleeve turnover charged separately",
+  "downside": "OLS excess strategy return on FF excess market in negative excess-market months; tail months ranked on FF total market",
+  "cross_section": "Equal-weighted cross-sectional OLS on joint fractional ranks; next observed adjusted-price return",
+  "source_comparison": "Supplied defensive and return-oriented constituents and rounded weights checked during reconstruction"
+}
