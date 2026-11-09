@@ -1,0 +1,57 @@
+{
+  "status": "complete",
+  "mode": "full",
+  "stages": [
+    {
+      "name": "experiment",
+      "seconds": 56.026,
+      "source_sha256": "e96a8f512cd8409edf0447a8e56656210dad276fe023d034dc61f71a6634e7f9"
+    },
+    {
+      "name": "mechanisms",
+      "seconds": 18.258,
+      "source_sha256": "fb2c3920d731e09c273b1aab828b82ae30c97fa01c7406e60023709f53c90102"
+    },
+    {
+      "name": "selection_comparison",
+      "seconds": 5.364,
+      "source_sha256": "cc0087786985da3141cdf5210e0b32aada96b7ebfd7459e47d4b123065759e93"
+    },
+    {
+      "name": "market_inference",
+      "seconds": 0.846,
+      "source_sha256": "62c9bec0ae6c9093a8f90aff47950f0c42e2ea91193e4e1c5428515a51c2eac0"
+    },
+    {
+      "name": "ext09_alpha_bab",
+      "seconds": 0.632,
+      "source_sha256": "66ba13f336332fffbe9b8ec6a7512f2fd6f87795868abbddc990f352f2ed529d"
+    },
+    {
+      "name": "extE_factor_cov",
+      "seconds": 34.905,
+      "source_sha256": "4f152d6077b5526be155893c324a42899da0facf12ed9a9541e8e1d0bc44fa6e"
+    },
+    {
+      "name": "selection_revisions",
+      "seconds": 35.54,
+      "source_sha256": "a68f6231aeb795d7cddd6cbc7a45493fd869aa71898bd5936a66c1fbd09abd7f"
+    },
+    {
+      "name": "allocation_sensitivity",
+      "seconds": 98.932,
+      "source_sha256": "fd42282562b03d2e74438282610789e5f6e70a5eae870bf220a03df9710abc2c"
+    },
+    {
+      "name": "report",
+      "seconds": 2.117,
+      "source_sha256": "07ac9a9c0eb332ba223ce319194369ba3fbb8e00d523916848460440abb4ac62"
+    },
+    {
+      "name": "verify_benchmarks",
+      "seconds": 0.745,
+      "source_sha256": "abec0eea75489895626b38494aeaf72d24715868eefc413494bb1ba3c931bd82"
+    }
+  ],
+  "seconds": 253.367
+}

@@ -1,0 +1,369 @@
+{
+  "complete": true,
+  "checks": [
+    {
+      "check": "Complete unique 215-month benchmark panel",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    },
+    {
+      "check": "S&P is the supplied sprtrn price series",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    },
+    {
+      "check": "CRSP remains the supplied total-return series",
+      "error": 0.0,
+      "tolerance": 1e-15,
+      "passed": true
+    },
+    {
+      "check": "CRSP_market metrics: full",
+      "error": 4.163336342344337e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "CRSP_market metrics: 2003_2011",
+      "error": 2.7755575615628914e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "CRSP_market metrics: 2012_2020",
+      "error": 8.326672684688674e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "CRSP_market metrics: financial_crisis",
+      "error": 4.440892098500626e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "CRSP_market metrics: covid",
+      "error": 8.326672684688674e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "CRSP_market regime: Bull I",
+      "error": 6.661338147750939e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "CRSP_market regime: Crisis I",
+      "error": 4.440892098500626e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "CRSP_market regime: Recovery I",
+      "error": 5.551115123125783e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "CRSP_market regime: Bull II",
+      "error": 2.220446049250313e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "CRSP_market regime: Shock I",
+      "error": 9.367506770274758e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "CRSP_market regime: Bull III",
+      "error": 9.71445146547012e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "CRSP_market regime: Pre-Crisis",
+      "error": 5.551115123125783e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "CRSP_market regime: Crisis II",
+      "error": 8.326672684688674e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "CRSP_market regime: Recovery II",
+      "error": 4.440892098500626e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "FF_market metrics: full",
+      "error": 8.881784197001252e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "FF_market metrics: 2003_2011",
+      "error": 1.1102230246251565e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "FF_market metrics: 2012_2020",
+      "error": 5.329070518200751e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "FF_market metrics: financial_crisis",
+      "error": 6.661338147750939e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "FF_market metrics: covid",
+      "error": 5.30825383648903e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "FF_market regime: Bull I",
+      "error": 2.220446049250313e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "FF_market regime: Crisis I",
+      "error": 2.220446049250313e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "FF_market regime: Recovery I",
+      "error": 2.220446049250313e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "FF_market regime: Bull II",
+      "error": 2.220446049250313e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "FF_market regime: Shock I",
+      "error": 9.367506770274758e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "FF_market regime: Bull III",
+      "error": 2.220446049250313e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "FF_market regime: Pre-Crisis",
+      "error": 1.1102230246251565e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "FF_market regime: Crisis II",
+      "error": 1.691355389077387e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "FF_market regime: Recovery II",
+      "error": 5.551115123125783e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "SP500 metrics: full",
+      "error": 6.938893903907228e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "SP500 metrics: 2003_2011",
+      "error": 6.245004513516506e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "SP500 metrics: 2012_2020",
+      "error": 8.326672684688674e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "SP500 metrics: financial_crisis",
+      "error": 5.551115123125783e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "SP500 metrics: covid",
+      "error": 1.3877787807814457e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "SP500 regime: Bull I",
+      "error": 7.632783294297951e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "SP500 regime: Crisis I",
+      "error": 5.551115123125783e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "SP500 regime: Recovery I",
+      "error": 2.220446049250313e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "SP500 regime: Bull II",
+      "error": 5.551115123125783e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "SP500 regime: Shock I",
+      "error": 9.71445146547012e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "SP500 regime: Bull III",
+      "error": 1.1102230246251565e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "SP500 regime: Pre-Crisis",
+      "error": 8.326672684688674e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "SP500 regime: Crisis II",
+      "error": 1.3877787807814457e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "SP500 regime: Recovery II",
+      "error": 1.1102230246251565e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "All 27 market-regime rows present",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    },
+    {
+      "check": "All three markets in both path figures",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    },
+    {
+      "check": "Heatmap includes three markets and 18 alternatives",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    },
+    {
+      "check": "Every heatmap cell independently reconciled",
+      "error": 4.970213129951162e-11,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "All full-period and regime plot coordinates reconciled",
+      "error": 4.997211089374787e-09,
+      "tolerance": 5.1e-09,
+      "passed": true
+    },
+    {
+      "check": "tab:main: only CRSP market rows highlighted",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    },
+    {
+      "check": "tab:period: only CRSP market rows highlighted",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    },
+    {
+      "check": "wealth_drawdown: CRSP is the thick orange total-return benchmark",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    },
+    {
+      "check": "regime_paths: CRSP is the thick orange total-return benchmark",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    },
+    {
+      "check": "Heatmap highlights CRSP rather than the price index",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    },
+    {
+      "check": "fig:wealth: manuscript embeds the regenerated figure",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    },
+    {
+      "check": "fig:regime_paths: manuscript embeds the regenerated figure",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    },
+    {
+      "check": "fig:regime_heatmap: manuscript embeds the regenerated figure",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    }
+  ],
+  "source_sha256": "a6a41b24da65796621ef9c672244c442d55d658dd300560c15695af049b758fc",
+  "primary_market": "CRSP_market",
+  "source_column": "vw_market_return",
+  "return_definition": "CRSP value-weighted total market return, including distributions",
+  "supplemental_price_series": "sp500_return (original sprtrn); excludes dividends",
+  "primary_cost": "20 bp round trip for strategies; no index cost deducted",
+  "artifacts_sha256": {
+    "benchmark_returns.csv": "b17d2e9ebea92f03be1ca5dcf22d79a2c4a24e55ab4a9d6d5dd4db89abe2d27a",
+    "benchmark_metrics.csv": "84fc0eaa790847ccf7b06017df956efe017fcd395f92664bce38f0345741fc69",
+    "regime_metrics.csv": "4cdb8be6353e2c25a796345b19d5597163fd0c497364ab22c3556636594425e3"
+  },
+  "code_sha256": {
+    "report.py": "07ac9a9c0eb332ba223ce319194369ba3fbb8e00d523916848460440abb4ac62",
+    "figures.py": "b6101789390880c21c721ce47aaef22311a2e6a27367a91a292babdfa18d071c",
+    "verify_benchmarks.py": "abec0eea75489895626b38494aeaf72d24715868eefc413494bb1ba3c931bd82"
+  }
+}

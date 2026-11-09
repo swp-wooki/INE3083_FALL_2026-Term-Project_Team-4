@@ -1,0 +1,196 @@
+{
+  "manuscript_tables": [
+    "tab:archive",
+    "tab:cost",
+    "tab:coverage",
+    "tab:extconstraints",
+    "tab:extwindows",
+    "tab:inference",
+    "tab:main",
+    "tab:mechanism",
+    "tab:methodmap",
+    "tab:period",
+    "tab:returnrecovery",
+    "tab:selectionrisk"
+  ],
+  "status": "passed",
+  "absolute_tolerance": 1e-08,
+  "relative_tolerance": 1e-07,
+  "tables": [
+    {
+      "table": "data_audit.csv",
+      "rows": 6450,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "monthly_returns.csv",
+      "rows": 24510,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "holdings.csv.gz",
+      "rows": 122550,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "model_metrics.csv",
+      "rows": 570,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "paired_comparisons.csv",
+      "rows": 1080,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "benchmark_returns.csv",
+      "rows": 215,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "benchmark_metrics.csv",
+      "rows": 15,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "regime_metrics.csv",
+      "rows": 1053,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "sharpe_bootstrap.csv",
+      "rows": 36,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "mechanism_summary.csv",
+      "rows": 19,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "selection_comparison/metrics.csv",
+      "rows": 12,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "selection_comparison/paired_inference.csv",
+      "rows": 2,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/allocation_metrics.csv",
+      "rows": 224,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/allocation_monthly_net_returns.csv",
+      "rows": 215,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/allocation_paired_inference.csv",
+      "rows": 100,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/allocation_risk_calibration.csv",
+      "rows": 56,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/allocation_score_matching.csv",
+      "rows": 24,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/bootstrap_precision.csv",
+      "rows": 2,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/capture_windows.csv",
+      "rows": 12,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/crisis_contribution.csv",
+      "rows": 2,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/downside_risk.csv",
+      "rows": 2,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/fourth_signals_blends.csv",
+      "rows": 8,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/joint_fama_macbeth.csv",
+      "rows": 9,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/removal_contrasts.csv",
+      "rows": 9,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/selection_monthly.csv",
+      "rows": 215,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/selection_sensitivity.csv",
+      "rows": 8,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/signal_increment.csv",
+      "rows": 3,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/signal_metrics.csv",
+      "rows": 42,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/signal_removals.csv",
+      "rows": 9,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/temporal_factor_means.csv",
+      "rows": 3,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/temporal_interactions.csv",
+      "rows": 3,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/temporal_regressions.csv",
+      "rows": 15,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "revisions/temporal_rolling.csv",
+      "rows": 336,
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "table": "extensions/ext09_alpha_bab/metrics.csv",
+      "rows": 57,
+      "maximum_absolute_difference": 3.907985046680551e-14
+    },
+    {
+      "table": "extensions/extE_factor_cov/forecast_vs_realized.csv",
+      "rows": 8,
+      "maximum_absolute_difference": 3.552713678800501e-15
+    }
+  ]
+}

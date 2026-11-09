@@ -1,0 +1,22 @@
+{
+  "verified_source_commit": "c2067f2b0f7afa92cb182ab787ccb738c607896d",
+  "fresh_checkout": true,
+  "fresh_pinned_environment": true,
+  "preexisting_results_directory": false,
+  "command": "python -m lowrisk_portfolio.cli",
+  "data_files_verified": 12,
+  "regression_tests_passed": 25,
+  "executed_notebook_cells": {
+    "01_quickstart.ipynb": 5,
+    "02_reproduce_report.ipynb": 6
+  },
+  "computed_csv_comparisons": 35,
+  "numbered_manuscript_tables": 12,
+  "benchmark_checks": 58,
+  "compiled_pdf": true,
+  "reproduced_manuscript_sha256": "77722b20ae3c4490a4f3d11073296f3c2a325511eff46f6182fda346a7b95842",
+  "selection_exports": {
+    "defensive_selection.csv": "ca40a1003d37589a9ef37ee0612428dce92b6bdfb320e5213a473c92392bc009",
+    "return_oriented_selection.csv": "93866635866fafbebfa19f14612ad1ee3419b84067b28beb7848e48740865729"
+  }
+}
