@@ -158,7 +158,69 @@ def reconstruct(out):
         )
     frame.to_csv(out / "selection_monthly.csv")
     (out / "precrisis_beta.json").write_text(json.dumps(betas, indent=2) + "\n")
+    # Supplementary diagnostics: separate files, so the outputs above stay unchanged.
+    from signals_v2 import _ex_mkt
+
+    excess, market_excess = _ex_mkt(market)
+    residual_score = residual_coskewness(excess, market_excess)
+    ranks["R"] = se.prepare_score(residual_score, market, cfg).rank(axis=1, pct=True)
+    residual = se.portfolio_returns(weights("BVR"), market, cfg).net
+    residual_summary(out, frame, residual, ranks, cfg.form_months())
     return frame
+
+
+def residual_coskewness(excess, market_excess, window=60, min_obs=36):
+    """Negative coskewness of market-model residuals, on the raw score's 60/36 window.
+
+    With centered returns x = beta*m + e, the raw numerator E[x m^2] contains
+    beta*E[m^3]. Removing that term leaves E[e m^2], scaled by sigma_e*sigma_m^2.
+    Market moments use only the months in which each stock is observed.
+    """
+    m = pd.DataFrame(
+        np.where(excess.notna(), market_excess.to_numpy()[:, None], np.nan),
+        index=excess.index,
+        columns=excess.columns,
+    )
+
+    def mean(z):
+        return z.rolling(window, min_obs).mean()
+
+    ey, em, em2 = mean(excess), mean(m), mean(m * m)
+    raw = mean(excess * m * m) - 2 * em * mean(excess * m) - ey * em2 + 2 * ey * em**2
+    market_var = em2 - em**2
+    beta = (mean(excess * m) - ey * em) / market_var
+    market_third = mean(m * m * m) - 3 * em * em2 + 2 * em**3
+    residual_var = (mean(excess * excess) - ey**2 - beta**2 * market_var).clip(lower=1e-12)
+    return -(raw - beta * market_third) / (np.sqrt(residual_var) * market_var)
+
+
+def residual_summary(out, frame, residual, ranks, formation_months):
+    """Compare B+V, B+V+C, and B+V with residual coskewness on the downside_risk definitions."""
+    if not residual.index.equals(frame.index):
+        raise ValueError("Residual-coskewness returns are misaligned with the selection panel")
+    m = frame.MKT
+    neg = frame["Mkt-RF"] < 0
+    bottom = m <= m.quantile(0.10)
+    rows = []
+    for model, r in [("BV", frame.BV), ("BVC", frame.BVC), ("BVR", residual)]:
+        row = dict(model=model, **_metrics(r, frame.RF, frame["Mkt-RF"]))
+        for period in ("2003--11", "2012--20"):
+            a, b = PERIODS[period]
+            wealth = np.r_[1.0, np.cumprod(1 + r.loc[a:b].to_numpy())]
+            row["mdd_" + period] = 100 * np.min(wealth / np.maximum.accumulate(wealth) - 1)
+        row.update(
+            downside_beta=hac_regression((r - frame.RF)[neg], frame["Mkt-RF"][neg])[0][1],
+            bottom_decile_mean=100 * r[bottom].mean(),
+            worst_five_mean=100 * r.loc[m.nsmallest(5).index].mean(),
+        )
+        rows.append(row)
+    pd.DataFrame(rows).to_csv(out / "residual_coskew.csv", index=False)
+    correlations = []
+    for pair in ("CR", "BR", "VR", "BC", "VC"):
+        x, y = ranks[pair[0]].loc[formation_months], ranks[pair[1]].loc[formation_months]
+        rho = x.corrwith(y, axis=1, method="spearman")
+        correlations.append(dict(pair=pair, mean=rho.mean(), min=rho.min(), max=rho.max()))
+    pd.DataFrame(correlations).to_csv(out / "residual_coskew_rank_correlation.csv", index=False)
 
 
 def _sr(excess, axis=0):

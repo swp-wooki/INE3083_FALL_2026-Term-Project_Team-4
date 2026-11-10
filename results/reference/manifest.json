@@ -146,6 +146,14 @@
       "sha256": "563ef59b20a680fa78eb62439309f2a69429e73d1d2a55b840f0294cc7c50436"
     },
     {
+      "path": "revisions/residual_coskew.csv",
+      "sha256": "0517710633295d74ec0d86de93e62e3aa05eb2a690ead2b05e655e7eed3e2bb4"
+    },
+    {
+      "path": "revisions/residual_coskew_rank_correlation.csv",
+      "sha256": "483a4000aad1f465c180c87ae18035d629942e1f1c92ba02b99f82277fdf75f2"
+    },
+    {
       "path": "revisions/selection_methods.json",
       "sha256": "11914d9d2fd54d06d1682412ac333aad96ebcda0514a579517b5da9804aaf7bc"
     },

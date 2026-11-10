@@ -34,6 +34,8 @@ TABLES = {
     "revisions/fourth_signals_blends.csv": ['model'],
     "revisions/joint_fama_macbeth.csv": ['period', 'signal'],
     "revisions/removal_contrasts.csv": ['period', 'removed_1', 'removed_2'],
+    "revisions/residual_coskew.csv": ['model'],
+    "revisions/residual_coskew_rank_correlation.csv": ['pair'],
     "revisions/selection_monthly.csv": ['month'],
     "revisions/selection_sensitivity.csv": ['setting'],
     "revisions/signal_increment.csv": ['period'],

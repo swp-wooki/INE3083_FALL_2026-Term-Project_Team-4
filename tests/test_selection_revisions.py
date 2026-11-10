@@ -5,7 +5,13 @@ import unittest
 import numpy as np
 import pandas as pd
 
-from lowrisk_portfolio.selection_revisions import _blocks, _interaction, _sr, bootstrap_precision
+from lowrisk_portfolio.selection_revisions import (
+    _blocks,
+    _interaction,
+    _sr,
+    bootstrap_precision,
+    residual_coskewness,
+)
 
 
 class SelectionInferenceTests(unittest.TestCase):
@@ -34,6 +40,20 @@ class SelectionInferenceTests(unittest.TestCase):
             [change["alpha_change"] / 1200, change["market_change"], change["cma_change"]],
             (last - first)[[0, 1, 5]],
         )
+
+    def test_residual_coskewness_matches_direct_moments(self):
+        rng = np.random.default_rng(5)
+        m = pd.Series(rng.normal(0.01, 0.05, 80))
+        x = pd.DataFrame({"a": 0.8 * m + rng.normal(0, 0.03, 80), "b": rng.normal(0, 0.06, 80)})
+        score = residual_coskewness(x, m)
+        for name in x:
+            xs, ms = x[name].to_numpy()[-60:], m.to_numpy()[-60:]
+            xc, mc = xs - xs.mean(), ms - ms.mean()
+            beta = (xc * mc).mean() / (mc * mc).mean()
+            e = xc - beta * mc
+            direct = -(e * mc * mc).mean() / (np.sqrt((e * e).mean()) * (mc * mc).mean())
+            np.testing.assert_allclose(score[name].iloc[-1], direct, rtol=1e-9)
+
 
 
 if __name__ == "__main__":
