@@ -15,6 +15,10 @@
 !/paper/
 !/selection/
 !/extensions/
+!/peer_review/
+/peer_review/*
+!/peer_review/team4_peer_review_rebuttal.tex
+!/peer_review/team4_peer_review_rebuttal.pdf
 
 __pycache__/
 *.py[cod]

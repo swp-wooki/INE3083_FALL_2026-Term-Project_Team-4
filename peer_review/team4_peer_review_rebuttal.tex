@@ -36,8 +36,8 @@ Questions follow the original review sheet, with minor typographical corrections
 
 \begin{reviewitem}{1}
 \textit{Incremental Contribution of Coskewness: Although the appendix compares standalone and combined signals, your team noted that the current analysis preserves the original selection results and does not separately identify the effects of all three signals. If your team compares ``low beta + low volatility'' against ``low beta + low volatility + coskewness'' with identical stock counts, sector constraints, and position caps on an unused period, does coskewness still add value?}
-\answer With the same 30-stock target, retention rule, nine-stock industry limit, and 6.67\% position cap, adding coskewness raised the full-sample Sharpe ratio from 0.83 to 1.11 (gain 0.281, 95\% confidence interval [0.054, 0.553]). In 2012--2020 the estimated gain was 0.194 (95\% interval $[-0.135,\,0.646]$). Both subsamples were examined retrospectively, leaving performance on unused data untested.
-\reportref{Section II-D, p.~2, and Section III-A(4), Table I, Panel B, pp.~3--4.}
+\answer Under identical rules (30 stocks, the same retention buffer, at most nine names per industry, and a 6.67\% position cap), adding coskewness raised Sharpe from 0.83 to 1.11. The gain was 0.281 (95\% interval $[0.054,\,0.553]$), and annualized mean return rose by 4.12 percentage points ($t=3.18$). In 2012--2020 the Sharpe gain was 0.194 ($[-0.135,\,0.646]$). The change from the earlier period was $-0.174$ ($[-0.652,\,0.363]$). Both the later-period gain and the change across periods were statistically inconclusive. All eight specifications produced a positive full-sample gain (0.068--0.288), but at 40, 50, and 100 stocks it narrowed to 0.07--0.11 and maximum drawdown deepened. Both periods were examined retrospectively. Performance on unused data remains untested.
+\reportref{Section II-D, p.~2, Sections III-A(4)--(5), and Table I, Panel B, pp.~3--4.}
 \end{reviewitem}
 
 \begin{reviewitem}{2}
@@ -48,9 +48,9 @@ Questions follow the original review sheet, with minor typographical corrections
 
 \begin{reviewitem}{3}
 \textit{Weaker Later-Period Results and Benchmark Consistency: Your team disclosed the limitations of using the S\&P 500 price index and also compared CRSP and Fama--French total-return benchmarks. If your team consistently uses the S\&P 500 total-return index and additionally control for low-beta and low-volatility exposure in an FF5 framework, how should the excess returns and coskewness premium---particularly during 2012--2020---be interpreted?}
-\answer The official S\&P 500 total-return series was unavailable. The CRSP and Fama--French (FF) total-return markets both include dividends and cover broader stock universes. In 2012--2020, Capped VW's Sharpe advantage was 0.136 over CRSP and 0.038 over FF. Neither difference was statistically significant.
+\answer The official S\&P 500 total-return series was unavailable. Capped VW's full-sample compound annual growth rate (CAGR) exceeded the dividend-inclusive CRSP market by 3.19 percentage points. In 2012--2020 its Sharpe advantage was 0.136 over CRSP and 0.038 over the Fama--French (FF) market. Both benchmarks cover broader stock universes than the S\&P 500, and both later-period intervals include zero.
 
-Annualized strategy alpha, the excess return unexplained by the factors, fell from 2.25\% under the FF five-factor model (FF5) to $-0.21\%$ after adding betting against beta (BAB). Including both BAB and a low-volatility factor gave 0.01\% alpha for the reconstructed strategy. A separate portfolio that buys high coskewness-score stocks and shorts low-score stocks had FF5-plus-BAB alpha of 3.96\% over the full sample ($t=2.56$) and 2.54\% in 2012--2020 ($t=1.22$). The later-period estimate provides little evidence of a separate coskewness premium.
+Annualized strategy alpha, the excess return unexplained by the factors, fell from 2.25\% ($t=1.22$) under the FF five-factor model (FF5) to $-0.21\%$ ($t=-0.11$) after adding betting against beta (BAB). The later BAB loading was positive (0.268, $t=3.11$). Full-sample FF5-plus-BAB alpha was 4.44\% ($t=2.55$). On reconstructed returns, adding a low-volatility control left 4.25\% ($t=2.82$) over the full sample and 0.01\% ($t=0.01$) after 2011. A separate coskewness long--short portfolio earned FF5-plus-BAB alpha of 3.96\% ($t=2.56$) over the full sample and 2.54\% ($t=1.22$) after 2011. The later estimates are consistent with low-beta exposure and provide little evidence of an independent coskewness premium.
 \reportref{Section III-H, pp.~10--11, Table III, Panel B, p.~15, and Appendix A, p.~20.}
 \end{reviewitem}
 
@@ -68,19 +68,19 @@ Annualized strategy alpha, the excess return unexplained by the factors, fell fr
 
 \begin{reviewitem}{6}
 \textit{Market-cap weighting had the highest CAGR of the 19 weighting methods. Do you think the main reason the more complex optimizations performed worse is covariance estimation error, or that risk was already well controlled at the stock-selection stage?}
-\answer The defensive selection and position cap left little scope for further risk reduction. Across the 19 weighting rules, annualized volatility ranged from 10.71\% to 11.39\%. Changing the covariance estimator had little effect under the cap (Q2). All 18 alternatives trailed Capped VW even before costs, by 0.43--1.54 percentage points in annualized mean return. Capped VW ranked first in compound annual growth rate (CAGR), although none of the net mean-return differences was significant after adjustment for multiple comparisons.
-\reportref{Section IV-A(1), pp.~13--14, Table II, p.~13, and Table VI, p.~18.}
+\answer Risk was already similar across the 19 allocations to the selected stocks. Annualized volatility ranged from 10.71\% to 11.39\%. Changing the covariance estimator had little effect under the position cap (Q2). All 18 alternatives trailed Capped VW before costs by 0.43--1.54 percentage points in annualized mean return. None of the 49 additional specifications exceeded its CAGR. These results are consistent with larger stocks performing better within the selected universe, although the experiment does not isolate a size effect. None of the net mean-return differences was significant after adjustment for multiple comparisons.
+\reportref{Section IV-A(1) and Table II, pp.~13--14, Table VI, p.~18, and Appendix C.}
 \end{reviewitem}
 
 \begin{reviewitem}{7}
 \textit{Which selection factor contributed most to performance: low beta, low volatility, or coskewness? Did you test each factor separately?}
-\answer We tested all seven signal combinations. Only coskewness significantly predicted next-month returns in the full-sample cross-sectional regression (0.50 percentage points across the full score ranking, $t=2.41$). Adding low beta and low volatility to coskewness reduced volatility from 22.3\% to 11.4\% and the maximum peak-to-trough loss from 64.0\% to 29.0\%. Removing low beta, low volatility, or coskewness lowered Sharpe by 0.256, 0.189, or 0.281, respectively. The pairwise differences between those contributions were statistically inconclusive.
+\answer We tested all seven signal combinations. Only coskewness significantly predicted next-month returns in the full-sample Fama--MacBeth regressions (0.50 percentage points across the full score ranking, $t=2.41$). Adding low beta and low volatility to coskewness reduced volatility from 22.3\% to 11.4\% and the maximum peak-to-trough loss from 64.0\% to 29.0\%. Removing low beta, low volatility, or coskewness lowered full-sample Sharpe by 0.256, 0.189, or 0.281, respectively. Every pairwise 95\% interval for the difference in contributions included zero. Low volatility had the largest estimated removal effect in 2012--2020 (0.309).
 \reportref{Section III-A(4), pp.~3--4, and Table I, Panel A, p.~4.}
 \end{reviewitem}
 
 \begin{reviewitem}{8}
 \textit{How do you interpret the statistically insignificant Sharpe ratio advantage after 2011? Does this suggest that the strategy's advantage depends on market conditions?}
-\answer Relative performance varied across regimes. All 19 allocations lost less than CRSP in the financial crisis and lagged CRSP during the 2020 decline and rebound. The financial crisis accounted for 36.2 of the 50.7 cumulative log-return points gained over CRSP (71\%). Excluding it still left a Sharpe advantage of 0.413 over 194 months (95\% interval $[0.081,\,0.824]$). The weaker post-2011 estimate is consistent with regime dependence.
+\answer All 19 allocations lost less than CRSP during the financial crisis and lagged CRSP over the full February--June 2020 episode. The financial crisis accounted for 36.2 of the 50.7 cumulative log-return points gained over CRSP (71\%). Excluding it still left a Sharpe advantage of 0.413 over 194 months (95\% interval $[0.081,\,0.824]$). After 2011, CRSP's Sharpe ratio rose while the strategy's stayed near 1.1 (Q5). The smaller relative advantage is consistent with regime dependence, but the later data cannot establish that it disappeared.
 \reportref{Section IV-B, p.~14, and Table V, p.~17.}
 \end{reviewitem}
 
@@ -92,14 +92,16 @@ Annualized strategy alpha, the excess return unexplained by the factors, fell fr
 
 \begin{reviewitem}{10}
 \textit{In the 2020 crisis (Feb.--Jun.), the portfolios fell about as much as the market at their worst point (\ensuremath{-}19.87\% vs. \ensuremath{-}20.20\%) but ended much lower (\ensuremath{-}11.73\% vs. \ensuremath{-}1.94\%). Why did the low-risk stocks not lose less, and why did they recover more slowly?}
-\answer Capped VW absorbed 98\% of the FF market's February--March 2020 decline. Including coskewness in selection had raised the portfolio's pre-crisis estimated market beta from 0.53 to 0.75. With coskewness omitted, downside capture was 71\%. Capped VW then captured only 44\% of the April--June rebound, leaving a five-month return of $-11.73\%$ against $-1.94\%$ for FF despite similar losses at the trough.
-\reportref{Section IV-B(a), p.~14, and Table V, p.~17.}
+\answer Adding coskewness raised the January 2020 portfolio's estimated market beta from 0.53 to 0.75. The beta difference implies roughly 4.7 percentage points of additional loss over February--March, close to the observed 5.5-point difference between the two portfolios. Capped VW absorbed 98\% of the FF market decline, versus 71\% without coskewness, then captured only 44\% of the April--June rebound.
+
+The team's supplementary industry analysis uses the capitalization-weighted eligible universe as its benchmark and sums monthly return differences. During the sell-off, a technology underweight (13\% versus 43\%) and a 33\% allocation to insurers and securities firms offset gains from defensive industries and limited bank exposure. During the rebound, technology represented 13\% of the portfolio versus 45\% of the universe, utilities 23\% versus 4\%, and insurance 32\% versus 6\%. The decomposition attributes $-9.2$ points of the $-10.8$-point rebound gap to industry weights ($-9.5$ of $-8.8$ points in the 2009 rebound). Low- and high-risk deciles gained 7.7\% and 57.4\% in the 2020 rebound. The industry attribution was not independently reproduced, so it offers a possible explanation for the recovery gap.
+\reportref{Section IV-B(a), p.~14, and Table V, p.~17 (returns and capture). Beta attribution, industry weights, and decile returns are supplementary team calculations.}
 \end{reviewitem}
 
 \begin{reviewitem}{11}
 \textit{The minimum-variance portfolio had a lower coskewness score than market-cap weighting (\ensuremath{-}1.06 pp). Is there evidence that coskewness adds value beyond low beta and low volatility?}
-\answer Coskewness added value in selection. Adding it to low beta and low volatility raised Sharpe from 0.83 to 1.11 and annualized mean return by 4.12 percentage points ($t=3.18$). The 1.06-percentile-point decrease arose when CC reweighted the same selected stocks. Constraining CC to match Capped VW's coskewness score lowered its Sharpe ratio from 1.069 to 1.048.
-\reportref{Section III-A(4), Table I, pp.~3--4, Table VI, p.~18, and Appendix C-B, Table XII, p.~22.}
+\answer Coskewness contributed at the selection stage. Controlling for the low-beta/low-volatility portfolio and FF5 left annualized alpha of 4.04\% ($t=4.27$) for the three-signal portfolio. The separate coskewness long--short portfolio also had significant full-sample FF5-plus-BAB alpha (3.96\%, $t=2.56$), while its later-period estimate was inconclusive (Q3). Among the same 30 selected stocks, CC reduced the weighted coskewness score by 1.06 percentile points. Restoring the Capped VW score lowered CC's Sharpe from 1.069 to 1.048.
+\reportref{Section III-A(4), Table I, pp.~3--4, Table VI, p.~18, Appendix A, p.~20, and Table XII, p.~22.}
 \end{reviewitem}
 
 \begin{reviewitem}{12}
@@ -116,13 +118,13 @@ Annualized strategy alpha, the excess return unexplained by the factors, fell fr
 
 \begin{reviewitem}{14}
 \textit{Your lead over the market is significant before 2012 but not after, and you say you can't tell which of your three signals drives the results. Is your strategy mostly the well-known low-risk effect, which has become weaker over time?}
-\answer Controlling for BAB reduced later-period FF5 alpha to $-0.21\%$. BAB's own annualized mean return rose from 4.26\% to 9.42\% across subsamples, while the realized coskewness long--short spread fell from 5.96\% to 0.58\%. The matched selection tests identify a full-sample gain from adding coskewness (Q1, Q7). The change in that gain across subsamples was statistically inconclusive.
+\answer Controlling for BAB reduced later-period FF5 alpha to $-0.21\%$. BAB's annualized mean return rose from 4.26\% to 9.42\% across subsamples, while the realized coskewness long--short spread fell from 5.96\% to 0.58\%. The matched selection tests show a full-sample Sharpe gain of 0.281 from adding coskewness (Q1, Q7). The change in that gain across subsamples was statistically inconclusive.
 \reportref{Table I, p.~4, Table III, Panel B, p.~15, and Appendix A, p.~20.}
 \end{reviewitem}
 
 \begin{reviewitem}{15}
 \textit{During the 2020 Covid crash, your main portfolio lost about 16\% while the S\&P 500 lost about 4\%. Why did a low-risk portfolio lose four times more than the market in a crash, which is exactly when it should protect investors?}
-\answer The 16\% figure refers to CC GMVP's February--June return ($-15.91\%$), compared with $-3.88\%$ for the S\&P 500 price index. Their peak-to-trough drawdowns were similar ($-20.12\%$ and $-19.87\%$, respectively). CC's weaker rebound explains the fourfold difference in the five-month loss. Over those same months, the baseline Capped VW portfolio returned $-11.73\%$ and CRSP returned $-3.41\%$.
+\answer The fourfold comparison uses the February--June returns of CC GMVP ($-15.91\%$) and the S\&P 500 price index ($-3.88\%$). Their peak-to-trough drawdowns were similar ($-20.12\%$ and $-19.87\%$), and the gap widened in the rebound. Capped VW returned $-11.73\%$ over the five months, versus $-3.41\%$ for CRSP. CC held the same 30 stocks as Capped VW. In the Capped VW selection test, adding coskewness raised pre-crisis beta from 0.53 to 0.75 and downside capture from 71\% to 98\% (Q10).
 \reportref{Section IV-B, p.~14, and Table V, p.~17.}
 \end{reviewitem}
 
@@ -134,34 +136,38 @@ Annualized strategy alpha, the excess return unexplained by the factors, fell fr
 
 \begin{reviewitem}{17}
 \textit{The Sharpe advantage over the market was smaller in 2012--2020 than in 2003--2011. The strategy's Sharpe ratio stayed around 1.1 while the market's went up, but the FF5 alpha also dropped from 9.69\% to 2.25\%. Is this because the portfolio's factor exposures changed, or because the market paid less for the same factors? Did you check this, for example with rolling-window factor regressions?}
-\answer We estimated 36- and 60-month rolling FF5 regressions. In the 60-month windows, market beta ranged from 0.51 to 0.80 and annualized alpha fell from 9.20\% in December 2008 to 6.41\% in December 2012 and 3.07\% in December 2020. Allowing all factor exposures to change in January 2012 still yielded a 7.44-percentage-point decline in alpha ($t=-2.79$). Market and investment-factor loadings rose by 0.17 and 0.50, but the joint test of all loading changes was sensitive to lag length ($p=0.006$ to $0.090$). The fall in unexplained return is clear. Its economic cause remains unidentified.
-\reportref{Table III, Panel B, p.~15, and Appendix A, equation (40), p.~20.}
+\answer We estimated 36- and 60-month rolling FF5 regressions. In the 60-month windows, market beta ranged from 0.51 to 0.80 and annualized alpha fell from 9.20\% in December 2008 to 6.41\% in December 2012 and 3.07\% in December 2020. Allowing all loadings to change in January 2012 still yielded a 7.44-percentage-point decline in alpha ($t=-2.79$). Market and investment-factor loadings rose by 0.17 and 0.50, but the joint test of all loading changes was sensitive to lag length ($p=0.006$ to $0.090$). The coskewness spread also narrowed (Q14), and annualized FF5 alpha for the low-beta/low-volatility portfolio fell from 5.2\% to 0.3\%. These coincident declines do not identify the economic cause of the alpha shift.
+\reportref{Table III, Panel B, p.~15, and Appendix A, equation (40), p.~20. The low-beta/low-volatility regression uses the reconstructed monthly returns.}
 \end{reviewitem}
 
 \begin{reviewitem}{18}
 \textit{Negative coskewness was used together with low beta and low volatility to select stocks. Depending on how it is defined, negative coskewness can go along with bad returns when the market moves sharply. If you kept the low-beta and low-volatility rules but dropped the coskewness signal, how would downside beta and losses in crash months change?}
-\answer Removing coskewness lowered downside beta from 0.79 to 0.66, indicating less sensitivity to the market in months of negative market excess returns. Average portfolio returns improved from $-4.02\%$ to $-3.29\%$ in the 22 bottom-decile market months and from $-9.30\%$ to $-7.10\%$ in the five worst months. The full-sample Sharpe ratio fell from 1.11 to 0.83. The historical return gain from coskewness therefore came with greater downside exposure.
+\answer Removing coskewness lowered downside beta from 0.79 to 0.66. Average portfolio returns improved from $-4.02\%$ to $-3.29\%$ in the 22 bottom-decile market months and from $-9.30\%$ to $-7.10\%$ in the five worst months, while full-sample Sharpe fell from 1.11 to 0.83. Compounding the average monthly return over a year gives 14.8\% with coskewness and 10.2\% without it.
+
+The full-sample maximum drawdown was nevertheless shallower with coskewness ($-29.0\%$ versus $-33.0\%$). In the seven worst market months of the financial crisis, the portfolio with coskewness lost 36.6\% cumulatively, versus 35.3\% without it. Across the other 14 crisis months it gained 24.9\% versus 16.6\%. Stronger returns outside the worst months helped limit the peak-to-trough loss.
 \reportref{Section III-A(5), p.~3, and Table I, p.~4.}
 \end{reviewitem}
 
 \begin{reviewitem}{19}
 \textit{Slide 44 demonstrates that the Constant Correlation GMVP (CC GMVP) increases the low-volatility tilt (+2.04) while reducing the effective number of holdings ($N_{\mathrm{eff}}$) from 19.8 to 16.9. How does this increased concentration in low-volatility securities influence portfolio diversification during market fluctuations, and does the reduction in $N_{\mathrm{eff}}$ introduce unexpected sector or stock-specific risk?}
-\answer CC assigned more weight to a smaller subset of the same 30 stocks. The effective number of holdings ($1/\sum_i w_i^2$) fell from 19.8 to 16.9, and the average weight of the largest industry in each month rose from 26.6\% to 35.2\%. The five largest stocks accounted for 33.3\% under both rules. An industry shock could therefore affect a larger share of the portfolio, although CC's realized volatility was lower in both crises. A 25\% industry cap improved CC's Sharpe ratio by only 0.018 (95\% interval $[-0.054,\,0.099]$). The evidence does not attribute the shortfall to an individual stock or industry.
+\answer CC reduced effective holdings ($1/\sum_i w_i^2$) from 19.8 to 16.9. We grouped stocks by two-digit SIC industry and filled missing codes from CRSP's original SICCD field. The industry concentration index (sum of squared industry weights) rose from 0.162 to 0.225. Utilities gained 9.2 percentage points of weight, while the five largest stocks still accounted for 33.3\% under both rules. CC had lower realized volatility in both crises (Q4), despite its greater exposure to industry-specific shocks. A 25\% industry cap brought the concentration index down to 0.161 but changed Sharpe by only 0.018 (95\% interval $[-0.054,\,0.099]$).
 \reportref{Section IV-C(2), Table VI, p.~18, and Appendix C-B, Table XII, p.~22.}
 \end{reviewitem}
 
 \begin{reviewitem}{20}
 \textit{Slide 46 compares a 30-stock defensive screen with a 50-stock return-oriented screen (momentum, profitability, issuance). The return-oriented screen increases compound annual growth rate (CAGR) by 2.43 percentage points but also significantly raises volatility (by 7.06 percentage points) and deepens maximum drawdown from \ensuremath{-}29.00\% to \ensuremath{-}48.05\%. Given that the Sharpe ratio declines from 1.110 to 0.858, is it possible to integrate return-oriented factors into a low-risk framework without substantially compromising downside protection?}
-\answer We added momentum, distance from the 52-week low, profitability exposure, or net issuance to the defensive screen one at a time, holding the stock count at 30. All four reduced Sharpe (0.913--0.977). The momentum addition slightly reduced maximum drawdown to $-28.45\%$, but CAGR fell to 12.95\%.
+\answer None of the combinations tested raised compound growth while preserving the defensive portfolio's maximum drawdown. Adding momentum, distance from the 52-week low, profitability exposure, or net issuance one at a time to the 30-stock screen reduced Sharpe to 0.913--0.977. Momentum slightly reduced maximum drawdown to $-28.45\%$, but CAGR fell to 12.95\%.
 
-An 80\% defensive, 20\% return-oriented blend raised CAGR from 14.05\% to 14.67\% and deepened maximum drawdown from $-29.00\%$ to $-32.22\%$. Sharpe was essentially unchanged in the matched rerun (1.111 to 1.115, 95\% interval for the difference $[-0.102,\,0.123]$). At a 50/50 split, drawdown deepened to $-38.30\%$.
+An 80\% defensive, 20\% return-oriented blend raised CAGR from 14.05\% to 14.67\% at the cost of a deeper drawdown ($-29.00\%$ to $-32.22\%$). Sharpe was essentially unchanged in the matched rerun (1.111 to 1.115, 95\% interval for the difference $[-0.102,\,0.123]$). At a 50/50 split, drawdown deepened to $-38.30\%$.
 \reportref{Section IV-C(6), p.~19, and Table IX, p.~20.}
 \end{reviewitem}
 
 \begin{reviewitem}{21}
 \textit{During Crisis I (2007--2009), all defensive strategies substantially limited maximum drawdown (approximately \ensuremath{-}28\% to \ensuremath{-}29\%) compared to the market index (\ensuremath{-}52.56\%). In contrast, during Crisis II (February to June 2020), all 19 strategy allocations underperformed relative to market benchmarks. What structural differences between a prolonged credit crisis (Crisis I) and a rapid, policy-driven rebound (Crisis II) account for the underperformance of low-risk and coskewness strategies during swift market recoveries?}
-\answer Capped VW absorbed 58\% of the FF market decline over the 16 months from November 2007 to February 2009 and captured 68\% of the March--May rebound. In 2020 it absorbed 98\% of the two-month decline and captured only 44\% of the April--June rebound. Monthly rebalancing allowed repeated changes during the first decline and only one intervening adjustment during the second. All 19 rules held the same selected stocks each month, limiting what reweighting could recover. The $-52.56\%$ drawdown cited in the question uses the S\&P 500 price index. These two episodes do not isolate the effects of policy intervention or rebalancing frequency.
-\reportref{Section IV-B, p.~14, Table V, p.~17, and Figure 10, p.~18.}
+\answer Capped VW absorbed 58\% of the FF market's 16-month decline in 2007--2009 and captured 68\% of the ensuing three-month rebound. In 2020 it absorbed 98\% of the two-month decline and captured 44\% of the April--June rebound. The $-52.56\%$ drawdown in the question is for the S\&P 500 price index. Only one month-end rebalance fell between the start of the 2020 decline and the trough. In the team's supplementary holdings comparison, consumer staples, utilities, and pharmaceuticals rose from an initial 45\% to an average 57\% during the earlier decline, when the portfolio held no banks. Their combined weight rose from 32\% to 47\% during the 2020 decline.
+
+All 19 rules held the same 30 names each month. Even the best of 49 additional weighting specifications returned $-8.82\%$ in February--June 2020, versus $-3.41\%$ for CRSP. Monthly rebalancing and signals measured over at least 12 months may have limited how quickly the holdings could adjust. Two crises cannot isolate either timing effect or the contribution of policy intervention.
+\reportref{Section IV-B, p.~14, Table V, p.~17, Figure 10, p.~18, and Appendix C (weighting specifications). Industry weights are from the supplementary holdings comparison.}
 \end{reviewitem}
 
 \pdfbookmark[1]{Revisions and replication}{revisions}
@@ -173,6 +179,6 @@ An 80\% defensive, 20\% return-oriented blend raised CAGR from 14.05\% to 14.67\
 
 \textit{Portfolio construction.} Beyond the 19 original weighting rules, we evaluated 49 specifications varying estimation windows, position limits, tracking error, signal exposures, and industry concentration. We also tested fourth-signal additions and portfolio blends. Allocation and reporting code is in \path{src/lowrisk_portfolio/} (Tables IX, XI, and XII).
 
-\textit{Data and limitations.} We used project CRSP data, FF factors, and AQR's U.S. BAB series (downloaded November~3, 2026). The cost model assumes 20 basis points per round trip and excludes market impact. Confidence intervals omit adjustment for the original search over signals and portfolio size. The later subsample and the 49 additional specifications reuse historical data. Daily covariance estimation and intramonth rebalancing remain untested (Section V and Appendices C and E).
+\textit{Data and limitations.} The tests use the raw coskewness score. A residual score that removes the market-beta component has yet to be independently validated. We used project CRSP data, FF factors, and AQR's U.S. BAB series (downloaded November~3, 2026). The cost model assumes 20 basis points per round trip and excludes market impact. Confidence intervals omit adjustment for the original search over signals and portfolio size. The later subsample and the 49 additional specifications reuse historical data. Daily covariance estimation and intramonth rebalancing remain untested (Section V and Appendices C and E).
 
 \end{document}
