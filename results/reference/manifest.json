@@ -134,8 +134,20 @@
       "sha256": "1763c9e652018ba5e4c3ccc63002b3936d01e558838c468f47e7e611cc22999e"
     },
     {
+      "path": "revisions/industry_attribution.csv",
+      "sha256": "6aedae92bbfb974afdebd6f5c2ce027a5258eebf519378870dec39145f665219"
+    },
+    {
+      "path": "revisions/industry_defensive_weight.csv",
+      "sha256": "a0d5c0c8dc888980875f20ed5583f0eecdc60ce26c4ca81b4a69076bbb060ba9"
+    },
+    {
       "path": "revisions/joint_fama_macbeth.csv",
       "sha256": "a87b37fd0bb291fff332911d07505cb93f60aec569ca1f031932ebe180920531"
+    },
+    {
+      "path": "revisions/low_risk_deciles.csv",
+      "sha256": "a16f55c0f5018d8e5ca2bdeeb4966007a0709a3daf872f01dee4afc42eb4e686"
     },
     {
       "path": "revisions/precrisis_beta.json",

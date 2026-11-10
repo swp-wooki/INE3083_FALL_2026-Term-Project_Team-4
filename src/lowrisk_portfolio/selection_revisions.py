@@ -166,6 +166,7 @@ def reconstruct(out):
     ranks["R"] = se.prepare_score(residual_score, market, cfg).rank(axis=1, pct=True)
     residual = se.portfolio_returns(weights("BVR"), market, cfg).net
     residual_summary(out, frame, residual, ranks, cfg.form_months())
+    industry_attribution(out, market, ranks, weights("BVC"))
     return frame
 
 
@@ -221,6 +222,127 @@ def residual_summary(out, frame, residual, ranks, formation_months):
         rho = x.corrwith(y, axis=1, method="spearman")
         correlations.append(dict(pair=pair, mean=rho.mean(), min=rho.min(), max=rho.max()))
     pd.DataFrame(correlations).to_csv(out / "residual_coskew_rank_correlation.csv", index=False)
+
+
+# Study-specific grouping of CRSP SICCD codes (two-digit unless noted); not a standard taxonomy.
+INDUSTRIES = [
+    ("Financial: REIT", {6798}),
+    ("Financial: banks", {60, 61}),
+    ("Financial: insurance", {63, 64}),
+    ("Financial: securities and other", {62, 65, 67}),
+    ("Utilities", {49}),
+    ("Consumer staples", {20, 21, 54}),
+    ("Energy", {13, 29}),
+    ("Pharmaceuticals and health", {28, 80}),
+    ("Technology and telecom", {35, 36, 38, 48, 73}),
+    ("Consumer discretionary", {52, 53, 55, 56, 57, 58, 59, 70, 78, 79}),
+    ("Transport and industrials", {37, 40, 42, 44, 45, 47}),
+]
+DEFENSIVE = ["Consumer staples", "Utilities", "Pharmaceuticals and health"]
+CRISIS_WINDOWS = [
+    ("2007_decline", "2007-11", "2009-02"),
+    ("2009_rebound", "2009-03", "2009-05"),
+    ("2020_decline", "2020-02", "2020-03"),
+    ("2020_rebound", "2020-04", "2020-06"),
+]
+
+
+def industry_group(siccd):
+    """Map one CRSP SICCD code to INDUSTRIES; missing or unlisted codes are Other."""
+    if pd.isna(siccd):
+        return "Other"
+    code = int(siccd)
+    if code in INDUSTRIES[0][1]:
+        return INDUSTRIES[0][0]
+    for label, codes in INDUSTRIES[1:]:
+        if code // 100 in codes:
+            return label
+    return "Other"
+
+
+def industry_effects(portfolio, benchmark, returns, groups):
+    """One-month Brinson split of portfolio minus benchmark return by industry.
+
+    Allocation is (w_p - w_b)(r_b,g - r_b); selection is w_p(r_p,g - r_b,g). The two
+    effects add to the portfolio return minus (sum of w_p) times the benchmark return.
+    """
+    total = (benchmark * returns).sum()
+    wb = benchmark.groupby(groups).sum()
+    wp = portfolio.groupby(groups).sum().reindex(wb.index, fill_value=0.0)
+    rb = (benchmark * returns).groupby(groups).sum() / wb
+    rp = ((portfolio * returns).groupby(groups).sum() / wp.replace(0, np.nan)).reindex(wb.index)
+    return pd.DataFrame(
+        dict(
+            portfolio_weight=wp,
+            benchmark_weight=wb,
+            allocation=(wp - wb) * (rb - total),
+            selection=wp * (rp.fillna(rb) - rb),
+        )
+    )
+
+
+def industry_attribution(out, market, ranks, holdings):
+    """Industry and stock effects of B+V+C against the capitalization-weighted eligible universe.
+
+    The universe is every stock with all three defensive ranks at formation, weighted by
+    formation-month capitalization; holding-month returns are adjusted-price returns with
+    the CRSP fill used by the selector. Monthly effects are summed within each window.
+    """
+    returns = market.ret.fillna(market.fill_ret)
+    eligible = ranks["B"].notna() & ranks["V"].notna() & ranks["C"].notna()
+    low_risk = (ranks["B"] + ranks["V"]) / 2
+    effects, weights, deciles = [], [], []
+    for window, start, end in CRISIS_WINDOWS:
+        months = pd.period_range(start, end, freq="M")
+        totals = []
+        decile = {"D1": 1.0, "D10": 1.0}
+        for held in months:
+            t = held - 1
+            names = eligible.columns[eligible.loc[t]]
+            y = returns.loc[held].reindex(names)
+            cap = market.x["mcap"].loc[t].reindex(names)
+            ok = y.notna() & cap.notna()
+            y, cap = y[ok], cap[ok]
+            groups = market.x["siccd"].loc[t].reindex(y.index).map(industry_group)
+            month = industry_effects(
+                holdings.loc[t].reindex(y.index).fillna(0.0), cap / cap.sum(), y, groups
+            )
+            totals.append(month)
+            weights.extend(
+                dict(window=window, formation_month=str(t), industry=k, portfolio_weight=100 * v)
+                for k, v in month.portfolio_weight.items()
+            )
+            # Deciles of the B+V score over every stock with both ranks, capitalization-weighted.
+            s = low_risk.loc[t].dropna()
+            ry = returns.loc[held].reindex(s.index)
+            rc = market.x["mcap"].loc[t].reindex(s.index)
+            keep = ry.notna() & rc.notna()
+            s, ry, rc = s[keep], ry[keep], rc[keep]
+            for label, mask in [("D1", s >= s.quantile(0.9)), ("D10", s <= s.quantile(0.1))]:
+                decile[label] *= 1 + np.average(ry[mask], weights=rc[mask])
+        summed = pd.concat(totals).groupby(level=0)
+        table = pd.DataFrame(
+            dict(
+                portfolio_weight=100 * summed.portfolio_weight.sum() / len(months),
+                benchmark_weight=100 * summed.benchmark_weight.sum() / len(months),
+                allocation=100 * summed.allocation.sum(),
+                selection=100 * summed.selection.sum(),
+            )
+        ).fillna(0.0)
+        effects.extend(dict(window=window, industry=k, **v) for k, v in table.iterrows())
+        deciles.extend(
+            dict(window=window, decile=k, cumulative_return=100 * (v - 1)) for k, v in decile.items()
+        )
+    weights = pd.DataFrame(weights)
+    defensive = (
+        weights[weights.industry.isin(DEFENSIVE)]
+        .groupby(["window", "formation_month"], as_index=False)
+        .portfolio_weight.sum()
+        .rename(columns={"portfolio_weight": "defensive_weight"})
+    )
+    pd.DataFrame(effects).to_csv(out / "industry_attribution.csv", index=False)
+    defensive.to_csv(out / "industry_defensive_weight.csv", index=False)
+    pd.DataFrame(deciles).to_csv(out / "low_risk_deciles.csv", index=False)
 
 
 def _sr(excess, axis=0):

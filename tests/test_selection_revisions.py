@@ -10,6 +10,8 @@ from lowrisk_portfolio.selection_revisions import (
     _interaction,
     _sr,
     bootstrap_precision,
+    industry_effects,
+    industry_group,
     residual_coskewness,
 )
 
@@ -54,6 +56,33 @@ class SelectionInferenceTests(unittest.TestCase):
             direct = -(e * mc * mc).mean() / (np.sqrt((e * e).mean()) * (mc * mc).mean())
             np.testing.assert_allclose(score[name].iloc[-1], direct, rtol=1e-9)
 
+    def test_industry_effects_add_to_return_gap(self):
+        rng = np.random.default_rng(9)
+        names = list("abcdefgh")
+        groups = pd.Series(list("xxyyzzzw"), index=names)
+        returns = pd.Series(rng.normal(0, 0.05, 8), index=names)
+        bench = pd.Series(rng.uniform(1, 2, 8), index=names)
+        bench /= bench.sum()
+        port = pd.Series([0.3, 0, 0.2, 0, 0.25, 0.25, 0, 0], index=names)
+        effects = industry_effects(port, bench, returns, groups)
+        np.testing.assert_allclose(
+            (effects.allocation + effects.selection).sum(),
+            (port * returns).sum() - (bench * returns).sum(),
+        )
+
+    def test_industry_groups(self):
+        cases = {
+            6798: "Financial: REIT",
+            6021: "Financial: banks",
+            6331: "Financial: insurance",
+            4911: "Utilities",
+            2834: "Pharmaceuticals and health",
+            7372: "Technology and telecom",
+            9999: "Other",
+            np.nan: "Other",
+        }
+        for code, label in cases.items():
+            self.assertEqual(industry_group(code), label)
 
 
 if __name__ == "__main__":
